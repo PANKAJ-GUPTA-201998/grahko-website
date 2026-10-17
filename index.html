@@ -189,11 +189,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0E1525; --ink-2:#283044; --muted:#626979; --faint:#8C92A0;
+    --ink:#0E1525; --ink-2:#283044; --muted:#5B6273; --faint:#6E7381;
     --line:#E8E5DE; --line-2:#D9D5CB;
     --bg:#FFFFFF; --sand:#FAF8F4; --sand-2:#F3F0E8;
-    --gold:#F5B800; --gold-ink:#8A6400; --gold-soft:#FFF5D1;
-    --wa:#1FA855; --wa-dark:#178F47; --call:#1C64F2; --red:#D93F3F;
+    --gold:#F5B800; --gold-ink:#A16207; --gold-soft:#FFF4CC;
+    --warm:linear-gradient(100deg,#D97706 10%,#C2410C 90%);   /* headline accent, AA for large text */
+    --wa:#0B8043; --wa-dark:#096C38; --call:#1C64F2; --red:#D93F3F;
     --shop:#F5C518;            /* the phone preview's colour, set per business type */
     --font:"Inter","Hind",system-ui,-apple-system,"Segoe UI",sans-serif;
     --r:22px; --r-sm:14px;
@@ -282,11 +283,11 @@
   body.menu-open{overflow:hidden}
 
   /* ================= Hero ================= */
-  .hero{padding:104px 0 56px;text-align:center;scroll-margin-top:64px}
+  .hero{padding:104px 0 56px;text-align:center;scroll-margin-top:64px;background:radial-gradient(60% 55% at 50% 0%,rgba(245,184,0,.13),rgba(245,184,0,0) 70%)}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--sand);border:1px solid var(--line);color:var(--ink-2);font-size:14px;font-weight:500;border-radius:999px;padding:6px 14px 6px 6px;margin-bottom:28px}
   .hero .eyebrow b{background:var(--ink);color:var(--gold);font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px}
   .hero h1{font-size:clamp(46px,8.4vw,104px);letter-spacing:-.05em;line-height:.98;font-weight:700}
-  .hero h1 .soft{color:var(--faint)}
+  .hero h1 .soft{background:var(--warm);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
   html[data-lang="hi"] .hero h1{line-height:1.15;font-size:clamp(40px,7vw,86px)}
   .hero .lede{max-width:44ch;margin:26px auto 0;font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
   .hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:38px}
@@ -314,7 +315,7 @@
   .opt{font-weight:400;font-size:14px;color:var(--faint)}
   .name-row{display:flex;gap:8px}
   .inp{flex:1;min-width:0;width:100%;font-size:17px;font-weight:500;padding:13px 16px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
-  .inp::placeholder{color:#A7ABB5;font-weight:400}
+  .inp::placeholder{color:#8E929C;font-weight:400}
   .inp:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(14,21,37,.07)}
   .mic{flex:none;width:52px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:#fff;cursor:pointer;display:none;place-items:center}
   .mic.on{display:grid}
@@ -498,7 +499,7 @@
   /* ================= Services ================= */
   .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s}
-  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
   .svc-ic{width:48px;height:48px;border-radius:14px;background:var(--gold-soft);color:var(--gold-ink);display:grid;place-items:center;margin-bottom:22px}
   .svc-ic .i{width:24px;height:24px}
   .svc h3{font-size:21px;letter-spacing:-.025em}
@@ -536,7 +537,7 @@
   .vs-col li{display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.45}
   .vs-col li .i{width:22px;height:22px;margin-top:1px}
   .vs-them li{color:var(--muted)}
-  .vs-them li .i{color:#C2C6CF}
+  .vs-them li .i{color:#B4B8C1}
   .vs-us li .i{color:var(--gold)}
   @media(max-width:760px){.vs{grid-template-columns:1fr}.vs-col{padding:30px 24px}}
 
@@ -546,9 +547,9 @@
   .anchor b{color:var(--ink)}
   .head.center .anchor{display:block}
   .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:16px}
-  .plan{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 24px;display:flex;flex-direction:column;position:relative;transition:box-shadow .3s}
-  .plan:hover{box-shadow:var(--shadow)}
-  .plan.is-rec{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink),var(--shadow)}
+  .plan{background:#fff;border-radius:var(--r);padding:30px 24px;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s}
+  .plan:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .plan.is-rec{box-shadow:0 0 0 2px var(--ink),var(--shadow-lg)}
   .plan .rec-tag{display:none;position:absolute;top:-13px;left:24px;background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
   .plan.is-rec .rec-tag{display:block}
   .plan h3{font-size:19px;letter-spacing:-.02em}
@@ -567,7 +568,7 @@
   .plan li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231FA855' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
   .plan .btn{margin-top:auto;width:100%;min-height:46px;font-size:15.5px}
   .plan.is-rec .btn{background:var(--ink);border-color:var(--ink);color:#fff}
-  .extras{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 32px}
+  .extras{margin-top:16px;background:#fff;border-radius:var(--r);padding:28px 32px;box-shadow:var(--shadow)}
   .extras h3{font-size:18px;margin-bottom:8px;letter-spacing:-.02em}
   .extra-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
   .extra-list div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
@@ -585,7 +586,7 @@
 
   /* ================= Steps ================= */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
-  .step{counter-increment:s;background:#fff;border-radius:var(--r);padding:30px 26px;box-shadow:var(--shadow)}
+  .step{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px}
   .step::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--gold);font-weight:700;font-size:15px;margin-bottom:22px}
   .step .when{font-size:13px;font-weight:600;color:var(--gold-ink);margin-bottom:6px}
   .step h3{font-size:20px;letter-spacing:-.02em}
@@ -797,8 +798,8 @@
       <span class="hi">आपकी दुकान,<br>ऑनलाइन। <span class="soft">7 दिन में।</span></span>
     </h1>
     <p class="lede">
-      <span class="en">We build your website and app, put your shop on Google Maps and set up WhatsApp, so customers nearby find you, call you and order from you.</span>
-      <span class="hi">हम आपकी वेबसाइट और ऐप बनाते हैं, दुकान को Google Maps पर लाते हैं और WhatsApp सेट करते हैं, ताकि पास के ग्राहक आपको ढूंढें, कॉल करें और ऑर्डर दें।</span>
+      <span class="en">Website, app, Google Maps and WhatsApp, all set up for you. So nearby customers can find you, call you and order.</span>
+      <span class="hi">वेबसाइट, ऐप, Google Maps और WhatsApp, सब हम सेट करते हैं। ताकि पास के ग्राहक आपको ढूंढें, कॉल करें और ऑर्डर दें।</span>
     </p>
     <div class="hero-cta">
       <a class="btn btn-dark" href="#studio"><span class="en">See your shop online</span><span class="hi">अपनी दुकान ऑनलाइन देखिए</span><svg class="i" aria-hidden="true"><use href="#i-down"/></svg></a>
@@ -817,8 +818,8 @@
 <section class="studio" id="studio">
   <div class="wrap">
     <div class="studio-head">
-      <h2><span class="en">Try it with your shop.</span><span class="hi">अपनी दुकान के साथ आज़माइए।</span></h2>
-      <p><span class="en">Type a name and watch it come to life. Free, takes 10 seconds.</span><span class="hi">नाम लिखिए और देखिए वो ऑनलाइन कैसी दिखेगी। बिल्कुल फ्री, सिर्फ 10 सेकंड।</span></p>
+      <h2><span class="en">See it with your own shop.</span><span class="hi">अपनी दुकान के साथ देखिए।</span></h2>
+      <p><span class="en">Type your shop's name. Watch it go online in seconds. Free.</span><span class="hi">दुकान का नाम लिखिए। सेकंडों में देखिए वो ऑनलाइन कैसी दिखेगी। बिल्कुल फ्री।</span></p>
     </div>
     <div class="stage">
     <div class="stage-grid">
@@ -946,7 +947,7 @@
     <div class="head reveal">
       <span class="eyebrow"><span class="en">What we do</span><span class="hi">हम क्या करते हैं</span></span>
       <h2><span class="en">Everything your shop needs to be found online.</span><span class="hi">ऑनलाइन दिखने के लिए दुकान को जो चाहिए, सब कुछ।</span></h2>
-      <p class="lede"><span class="en">Four things, done properly, by one team. You keep running your shop. We handle the rest.</span><span class="hi">चार काम, सही तरीके से, एक ही टीम से। आप दुकान चलाइए, बाकी हम संभालेंगे।</span></p>
+      <p class="lede"><span class="en">Four things, done right, by one team. You run the shop. We handle the rest.</span><span class="hi">चार काम, सही तरीके से, एक ही टीम से। आप दुकान संभालिए, बाकी हम।</span></p>
     </div>
     <div class="services">
       <div class="svc reveal">
@@ -982,7 +983,7 @@
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow"><span class="en">Your gain</span><span class="hi">आपका फायदा</span></span>
-      <h2><span class="en">What being online is worth.</span><span class="hi">ऑनलाइन होने का कितना फायदा?</span></h2>
+      <h2><span class="en">What going online is worth to you.</span><span class="hi">ऑनलाइन आने से आपको कितना फायदा?</span></h2>
       <p class="lede"><span class="en">Move the sliders and see the numbers for yourself.</span><span class="hi">पट्टी खिसकाइए और खुद हिसाब देखिए।</span></p>
     </div>
     <p class="fomo js-fomo"></p>
