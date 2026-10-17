@@ -1,7 +1,7 @@
 # Grahko website
 
 Single-page website: we take shops and small businesses from offline to online
-(website, app, Google Maps, WhatsApp). Hindi by default, English toggle.
+(website, app, Google Maps, WhatsApp). English by default, Hindi toggle.
 
 ## Files
 | File | What it is |
@@ -15,10 +15,9 @@ Single-page website: we take shops and small businesses from offline to online
 ## Before going live, edit `index.html`
 1. `CONFIG` → WhatsApp number, phone, email, UPI ID, Razorpay link, payee name
 2. `+91-99999-99999` (structured data near the top) → real phone number
-3. `TEAM` → founder's name (and photo links, optional)
-4. `REVIEWS` → add **real** customer reviews only; the section stays hidden while empty
-5. `PRICE` / `OFFER` → prices and offer end date (site switches to regular prices by itself)
-6. `FESTIVAL` → next festival name and last order date
+3. `REVIEWS` → add **real** customer reviews only; the section stays hidden while empty
+4. `PRICE` / `OFFER` → prices and offer end date (site switches to regular prices by itself)
+5. `FESTIVAL` → next festival name and last order date
 
 The site address is set to `https://grahko.in/`. If you use another domain, replace it in
 `index.html`, `robots.txt`, `sitemap.xml` and `llms.txt`.
