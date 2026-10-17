@@ -3,11 +3,16 @@
 Single-page website: we take shops and small businesses from offline to online
 (website, app, Google Maps, WhatsApp). English by default, Hindi toggle.
 
+## Brand
+Logo: a gold map pin with a shop inside (your shop, on the map). Colours: gold `#F5B800`,
+ink `#0E1525`, sand `#FAF8F4`. Font: Inter (Hindi text uses Hind).
+
 ## Files
 | File | What it is |
 |---|---|
 | `index.html` | The whole website (HTML, CSS and JavaScript in one file) |
 | `og-image.png` | Picture shown when the link is shared on WhatsApp / social media |
+| `logo.svg` | The Grahko logo, for print, WhatsApp profile picture and visiting cards |
 | `robots.txt` | Lets Google and AI search (ChatGPT, Perplexity, Gemini) read the site |
 | `sitemap.xml` | Page list for Google Search Console |
 | `llms.txt` | Plain summary of the business for AI tools |
