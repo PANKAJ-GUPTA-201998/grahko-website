@@ -6,11 +6,18 @@
 Electricians, plumbers, grocery (kirana) shops, medical stores, salons and parlours, clinics, coaching centres, schools, dhabas and restaurants, clothes shops, lawyers and CAs, gyms, and other small businesses.
 
 ## Plans (one-time cost, no lock-in, everything in the client's name)
-- Website only: mobile website, call and WhatsApp buttons, address and map, 1 year hosting.
-- Website + App: everything above, an Android app in the client's name, Google Maps listing and WhatsApp Business setup, 3 months of free help.
-- Everything: website, app and automatic WhatsApp bookings/orders, with monthly updates and a report; the monthly plan can be stopped any month.
-- Big projects: school portals, medical store billing, lawyer/CA client systems, priced on the work.
+- Website: mobile website (up to 5 sections), .in domain and hosting free for 1 year, call/WhatsApp/directions buttons, prices, photos and map, 15 days of free changes.
+- Website + App: the full website, an Android app on Google Play in the client's name, Google Maps listing, WhatsApp Business setup and a logo, plus 3 months of help and a monthly report.
+- Everything: website, app, Google Maps, WhatsApp Business and logo, automatic WhatsApp bookings/orders, UPI payments, Instagram and Facebook pages, a Google review QR standee, and monthly updates, local SEO and a report; the monthly part can be stopped any month.
+- Custom: website, app and software built around the client, such as school portals, billing, and CA/lawyer systems, with staff logins and training.
 Current prices and offers are on https://grahko.in/#pricing
+
+## Add-on services (on their own or with any plan)
+- Get found: Google Maps listing, local SEO, Google review booster, JustDial and IndiaMART listings, Swiggy and Zomato listing help.
+- Get more customers: Google Ads, Instagram and Facebook ads (ad spend paid by the client to Google/Meta), social media posts and reels, WhatsApp offer messages, Instagram and Facebook page setup.
+- Look professional: logo design, shop photoshoot (Delhi NCR), promo reels, print kit (visiting card, pamphlet, QR standee), business email.
+- Run the shop: WhatsApp Business setup, UPI payments, product catalogue, billing and stock software, loyalty cards.
+Prices are on https://grahko.in/#addons
 
 ## How it works
 1. Talk on WhatsApp, phone or video call. 2. Pay half to start, the rest when the work is done, with a receipt. 3. See the first design in 3–4 days. 4. Website live in about 7 days (apps take 15–20 days for Google Play approval).
