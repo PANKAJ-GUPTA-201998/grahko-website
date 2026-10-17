@@ -22,9 +22,10 @@ ink `#0E1525`, sand `#FAF8F4`. Font: Inter (Hindi text uses Hind).
 2. `+91-99999-99999` (structured data near the top) → real phone number
 3. `REVIEWS` → add **real** customer reviews only; the section stays hidden while empty
 4. `PRICE` / `OFFER` → prices and offer end date (site switches to regular prices by itself).
-   Now: Website ₹4,999 (regular ₹9,999), Website + App ₹9,999 (regular ₹16,999),
+   Now: Website ₹4,999 (regular ₹9,999), Website + WhatsApp ₹9,999 (regular ₹16,999),
    Everything ₹19,999 (regular ₹29,999). The nav's offer pill shows the biggest saving by itself.
    If you change what a plan includes, also update its card in the Pricing section.
+   Which plan is suggested for each business type is `plan:` in `TYPES` (`web`, `app` = Website + WhatsApp, `all`, `big`).
 5. `FESTIVAL` → next festival name and last order date
 6. Add-on services → the `ADD-ON SERVICES` section of `index.html` (name, one line, price).
    Each item opens WhatsApp with its name, so no code change is needed to add one.
