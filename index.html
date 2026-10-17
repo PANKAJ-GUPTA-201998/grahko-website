@@ -349,7 +349,7 @@
   .listen .i{width:16px;height:16px}
   .listen.on{display:inline-flex}
   .listen.speaking{background:var(--gold-soft);border-color:var(--gold)}
-  .phone{width:262px;height:520px;margin:0 auto;background:#0B0F1A;border-radius:46px;padding:11px;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2A3142;position:relative}
+  .phone{width:268px;height:550px;margin:0 auto;background:#0B0F1A;border-radius:46px;padding:11px;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2A3142;position:relative}
   .phone::before{content:"";position:absolute;top:19px;left:50%;transform:translateX(-50%);width:76px;height:22px;border-radius:12px;background:#0B0F1A;z-index:6}
   .screen{background:#fff;height:100%;border-radius:36px;overflow:hidden;position:relative}
   .demo-tag{position:absolute;top:50px;left:50%;transform:translateX(-50%);z-index:7;background:rgba(14,21,37,.82);color:#fff;font-size:11.5px;font-weight:600;border-radius:999px;padding:2px 10px;white-space:nowrap;display:none}
@@ -360,90 +360,150 @@
   .pv-note{text-align:center;font-size:12.5px;color:var(--faint);margin-top:10px}
 
   /* Phone screens */
-  .scr{position:absolute;inset:0;display:flex;flex-direction:column;font-size:14px;line-height:1.35;background:#fff;visibility:hidden;z-index:1;transition:visibility 0s .3s}
+  .sbar{position:absolute;top:0;left:0;right:0;height:40px;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:4px 22px 0 28px;font-size:11.5px;font-weight:600;color:var(--ink);pointer-events:none}
+  .sbar svg{width:42px;height:11px}
+  .screen[data-on="wa"] .sbar,.screen[data-on="book"] .sbar{color:#fff}
+  .scr{position:absolute;inset:0;display:flex;flex-direction:column;font-size:12.5px;line-height:1.35;background:#fff;visibility:hidden;z-index:1;transition:visibility 0s .3s}
   .scr.active{visibility:visible;z-index:2;transition:none;animation:scrIn .35s var(--ease)}
   @keyframes scrIn{from{transform:translateX(100%)}to{transform:none}}
-  @media (prefers-reduced-motion:reduce){.scr.active{animation:none}}
-  .url{margin:48px 10px 0;background:#F2F3F5;border-radius:999px;padding:4px 10px;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
-  .s-head{background:var(--shop);padding:12px 16px 14px;color:var(--ink);margin-top:8px}
-  .s-head .em{font-size:32px;line-height:1}
-  .s-head b{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.12;margin-top:6px;word-break:break-word}
-  .s-head small{font-size:12px;font-weight:500}
-  .s-tag{display:inline-block;margin-top:6px;background:rgba(255,255,255,.8);border-radius:999px;padding:1px 9px;font-size:11px;font-weight:600}
-  .s-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .s-items{display:flex;flex-direction:column;gap:6px}
-  .s-item{display:flex;justify-content:space-between;gap:8px;background:#F4F5F7;border-radius:10px;padding:7px 10px;font-weight:500;font-size:12.5px}
-  .s-item em{font-style:normal;font-weight:700;white-space:nowrap}
-  .s-btns{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .s-btns button,.b-ok{border:none;cursor:pointer;color:#fff;font-weight:600;font-size:13px}
-  .s-btns button{border-radius:12px;padding:10px 4px}
-  .screen.has-photo .s-head{background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.65)),var(--photo) center/cover;color:#fff;padding-top:70px}
+  .scroll{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain}
+  .scroll::-webkit-scrollbar{display:none}
+  .stars{color:#F5A400;letter-spacing:.5px;font-size:10px}
+  .open{color:#137a3d;font-weight:700}
+  [data-ptoast]{cursor:pointer}
+
+  /* 1. Website */
+  .url{margin:42px 10px 6px;background:#F2F3F5;border-radius:999px;padding:4px 10px;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+  .s-head{background:var(--shop);padding:12px 14px 14px;color:var(--ink)}
+  .s-head .em{font-size:28px;line-height:1}
+  .s-head b{display:block;font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.12;margin-top:6px;word-break:break-word}
+  .s-rate{display:flex;align-items:center;flex-wrap:wrap;gap:3px;font-size:10.5px;margin:4px 0 2px}
+  .s-head small{display:block;font-size:10.5px;font-weight:500}
+  .s-head .open{color:#0B5F2E}
+  .s-tag{display:inline-block;margin-top:6px;background:rgba(255,255,255,.85);border-radius:999px;padding:1px 9px;font-size:10.5px;font-weight:600}
+  .screen.has-photo .s-head{background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.7)),var(--photo) center/cover;color:#fff;padding-top:64px}
   .screen.has-photo .s-head .em{display:none}
+  .screen.has-photo .s-head .open{color:#7CE3A6}
+  .s-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 12px 0}
+  .s-acts span,.g-acts span{display:flex;flex-direction:column;align-items:center;gap:1px;border-radius:10px;padding:6px 2px;font-size:14px;line-height:1.1}
+  .s-acts span{background:#F4F5F7}
+  .s-acts i,.g-acts i{font-style:normal;font-size:9.5px;font-weight:600}
+  .s-offer{margin:10px 12px 0;background:#FFF4CC;border:1px dashed #E2B000;border-radius:10px;padding:7px 10px;font-size:11px;font-weight:600}
+  .s-h{margin:14px 12px 6px;font-size:11.5px;font-weight:700}
+  .s-items{display:flex;flex-direction:column;gap:5px;padding:0 12px}
+  .s-item{display:flex;justify-content:space-between;gap:8px;background:#F4F5F7;border-radius:9px;padding:6px 10px;font-weight:500;font-size:11.5px}
+  .s-item em{font-style:normal;font-weight:700;white-space:nowrap}
+  .s-badges{display:grid;gap:6px;padding:12px 12px 0}
+  .s-badges span{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:500}
+  .s-badges i{font-style:normal;flex:none;width:22px;height:22px;border-radius:7px;background:#F4F5F7;display:grid;place-items:center;font-size:11px}
+  .s-rev,.g-review{margin:0 12px;background:#F4F5F7;border-radius:10px;padding:8px 10px;font-size:11px;line-height:1.4}
+  .s-rev p{margin:2px 0 3px}
+  .s-rev small,.g-review small{display:block;color:var(--muted);font-size:10px}
+  .s-map,.g-map{position:relative;overflow:hidden;border-radius:10px;background:linear-gradient(90deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%),linear-gradient(0deg,transparent 40%,#fff 40%,#fff 47%,transparent 47%),linear-gradient(35deg,transparent 60%,#fff 60%,#fff 64%,transparent 64%),#E3EAD9}
+  .s-map{height:64px;margin:0 12px}
+  .s-map i{position:absolute;left:50%;top:50%;transform:translate(-50%,-75%);font-style:normal;font-size:18px}
+  .s-addr{margin:8px 12px 14px;font-size:10.5px;color:var(--muted);line-height:1.55}
+  .s-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 10px 14px;background:#fff;box-shadow:0 -8px 14px -10px rgba(0,0,0,.25)}
+  .s-btns button,.b-ok{border:none;cursor:pointer;color:#fff;font-weight:600;font-size:12.5px}
+  .s-btns button{border-radius:12px;padding:9px 4px}
 
-  .a-top{padding:48px 12px 12px;background:var(--shop)}
+  /* 2. App */
+  .a-top{padding:42px 12px 10px;background:var(--shop)}
   .a-row{display:flex;align-items:center;gap:9px}
-  .a-icon{width:38px;height:38px;border-radius:11px;background:#fff;display:grid;place-items:center;font-size:20px;flex:none;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+  .a-icon{width:36px;height:36px;border-radius:11px;background:#fff;display:grid;place-items:center;font-size:19px;flex:none;box-shadow:0 2px 6px rgba(0,0,0,.12)}
   .screen.has-photo .a-icon{background:var(--photo) center/cover;font-size:0}
-  .a-row small{display:block;font-size:11px;font-weight:600;opacity:.75}
-  .a-row b{display:block;font-size:15px;line-height:1.15;word-break:break-word}
-  .a-search{margin-top:10px;background:#fff;border-radius:10px;padding:6px 10px;font-size:12px;color:var(--muted)}
-  .a-play{display:inline-block;margin-top:7px;background:var(--ink);color:#fff;border-radius:6px;padding:1px 7px;font-size:10.5px;font-weight:600}
-  .a-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:10px 12px 0}
-  .a-tile{background:#F4F5F7;border-radius:12px;padding:9px 6px;text-align:center;font-weight:500;font-size:12px;line-height:1.25}
-  .a-tile i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
-  .a-cta{margin:10px 12px 0;border:none;width:calc(100% - 24px);background:var(--ink);color:#fff;border-radius:12px;padding:10px;font-weight:600;font-size:13.5px;cursor:pointer}
-  .a-nav{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #EEE;padding:8px 0 14px;text-align:center;font-size:16px}
+  .a-row small{display:block;font-size:10.5px;font-weight:600;opacity:.75}
+  .a-row b{display:block;font-size:14px;line-height:1.15;word-break:break-word}
+  .a-bell{margin-left:auto;font-size:15px}
+  .a-search{margin-top:9px;background:#fff;border-radius:10px;padding:6px 10px;font-size:11px;color:var(--muted)}
+  .a-banner{margin:10px 12px 0;background:var(--ink);color:#fff;border-radius:12px;padding:10px;font-size:11px;font-weight:600}
+  .a-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:10px 12px 0}
+  .a-tile{background:#F4F5F7;border-radius:10px;padding:7px 2px;text-align:center;font-weight:500;font-size:9.5px;line-height:1.2}
+  .a-tile i{display:block;font-style:normal;font-size:17px;margin-bottom:2px}
+  .a-h{margin:12px 12px 6px;font-size:11.5px;font-weight:700}
+  .a-list{display:flex;flex-direction:column;gap:5px;padding:0 12px}
+  .a-item{display:flex;align-items:center;justify-content:space-between;gap:6px;background:#F4F5F7;border-radius:10px;padding:6px 6px 6px 10px;font-size:11px;font-weight:500;line-height:1.25}
+  .a-item em{display:block;font-style:normal;font-weight:700}
+  .a-item button{flex:none;border:1px solid var(--ink);background:#fff;border-radius:999px;padding:3px 9px;font-size:10px;font-weight:600;color:var(--ink)}
+  .a-item button.added{background:var(--ink);color:#fff}
+  .a-play{display:block;margin:12px;text-align:center;color:var(--muted);font-size:10px}
+  .a-cta,.a-cart{margin:6px 10px 0;border:none;width:calc(100% - 20px);border-radius:12px;padding:9px 12px;font-size:12px;font-weight:600;cursor:pointer;color:#fff}
+  .a-cta{background:var(--ink)}
+  .a-cart{background:#0B8043;display:flex;justify-content:space-between;align-items:center}
+  .a-nav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #EEE;margin-top:6px;padding:7px 0 13px;text-align:center;font-size:15px}
+  .a-nav span{opacity:.4}
+  .a-nav .on{opacity:1}
 
-  .w-head{background:#075E54;color:#fff;padding:46px 12px 10px;display:flex;align-items:center;gap:9px}
-  .w-av{width:34px;height:34px;border-radius:50%;background:var(--shop);display:grid;place-items:center;font-size:18px;flex:none}
+  /* 3. WhatsApp */
+  .w-head{background:#075E54;color:#fff;padding:42px 10px 9px;display:flex;align-items:center;gap:7px}
+  .w-back{font-size:22px;line-height:1;margin-top:-2px}
+  .w-av{width:32px;height:32px;border-radius:50%;background:var(--shop);display:grid;place-items:center;font-size:16px;flex:none}
   .screen.has-photo .w-av{background:var(--photo) center/cover;font-size:0}
-  .w-head b{display:block;font-size:14px;line-height:1.15;word-break:break-word}
-  .w-head small{font-size:11px;opacity:.85}
-  .w-chat{flex:1;background:#ECE5DD;padding:12px 10px;display:flex;flex-direction:column;gap:8px}
-  .msg{max-width:86%;padding:7px 10px;border-radius:10px;font-size:12.5px;box-shadow:0 1px 1px rgba(0,0,0,.1);word-break:break-word}
-  .msg small{display:block;text-align:right;font-size:10px;color:#7B8A7B;margin-top:2px}
+  .w-head b{display:block;font-size:13px;line-height:1.15;word-break:break-word}
+  .w-head small{font-size:10px;opacity:.85}
+  .w-chat{flex:1;min-height:0;overflow:hidden;background:#ECE5DD;padding:10px 9px 6px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+  .w-day{align-self:center;background:#E1F2FB;color:#54656F;font-size:9.5px;font-weight:600;border-radius:6px;padding:1px 8px}
+  .msg{max-width:88%;padding:6px 9px;border-radius:10px;font-size:11px;line-height:1.38;box-shadow:0 1px 1px rgba(0,0,0,.1);word-break:break-word}
+  .msg small{display:block;text-align:right;font-size:9px;color:#7B8A7B;margin-top:1px}
   .msg.in{background:#fff;align-self:flex-start;border-top-left-radius:2px}
   .msg.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:2px}
-  .auto-tag{align-self:flex-end;font-size:10.5px;background:#FFF3C4;border-radius:999px;padding:1px 8px;font-weight:600}
-  .w-quick{display:flex;flex-direction:column;gap:5px;align-self:flex-end;width:86%}
-  .w-quick span{background:#fff;color:#0B8A7A;border-radius:8px;text-align:center;padding:5px;font-size:12px;font-weight:600}
+  .auto-tag{align-self:flex-end;font-size:9.5px;background:#FFF3C4;border-radius:999px;padding:1px 8px;font-weight:600}
+  .w-quick{display:flex;flex-direction:column;gap:4px;align-self:flex-end;width:88%}
+  .w-quick span{background:#fff;color:#0B8A7A;border-radius:8px;text-align:center;padding:4px;font-size:10.5px;font-weight:600}
+  .w-input{display:flex;align-items:center;gap:7px;padding:6px 9px 13px;background:#ECE5DD}
+  .w-input span{flex:1;background:#fff;border-radius:999px;padding:6px 12px;font-size:11px;color:#8696A0}
+  .w-input i{font-style:normal;width:30px;height:30px;border-radius:50%;background:#00A884;display:grid;place-items:center;font-size:13px}
+  .scr[data-scr="wa"].active [style*="--d"]{animation:msgIn .4s var(--ease) both;animation-delay:calc(var(--d) * .85s + .3s)}
+  @keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(.97)}}
 
-  .b-top{background:var(--ink);color:#fff;padding:48px 14px 14px;text-align:center}
-  .b-top small{opacity:.75;font-size:12px}
-  .b-top b{display:block;font-size:19px;letter-spacing:-.02em}
-  .b-moon{position:absolute;top:46px;right:14px;font-size:18px;z-index:3}
-  .b-list{margin:14px 12px 0;background:#fff;border:1.5px solid var(--wa);border-radius:14px;padding:10px 12px;font-size:13px}
+  /* 4. Booking / order */
+  .b-top{background:var(--ink);color:#fff;padding:44px 14px 14px;text-align:center}
+  .b-top small{opacity:.75;font-size:11px}
+  .b-top b{display:block;font-size:17px;letter-spacing:-.02em}
+  .b-moon{position:absolute;top:44px;right:14px;font-size:16px;z-index:3}
+  .b-list{margin:12px 12px 0;background:#fff;border:1.5px solid #0B8043;border-radius:14px;padding:9px 11px;font-size:11.5px}
   .b-list .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed #E3E3E3}
-  .b-list .row:last-child{border-bottom:none}
-  .b-list .tot{font-weight:700;font-size:14px}
-  .b-list .who{color:var(--muted);font-size:12px;margin-top:4px}
-  .b-head{display:flex;align-items:center;gap:8px;font-weight:700;color:#137a3d;margin-bottom:4px}
-  .b-shop{margin:12px 12px 0;font-size:12.5px;color:var(--muted);text-align:center;word-break:break-word}
-  .b-ok{margin:auto 12px 16px;background:var(--wa);border-radius:12px;padding:11px;font-size:14px}
+  .b-list .row:last-of-type{border-bottom:none}
+  .b-list .tot{font-weight:700;font-size:12.5px}
+  .b-list .who{color:var(--muted);font-size:10.5px;margin-top:4px}
+  .b-head{display:flex;align-items:center;gap:6px;font-weight:700;color:#137a3d;margin-bottom:3px}
+  .b-paid{margin-left:auto;background:#E9F8EF;color:#137a3d;border-radius:999px;padding:0 7px;font-size:9.5px;font-weight:700}
+  .b-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 12px 0}
+  .b-stats div{background:#F4F5F7;border-radius:12px;padding:8px 10px}
+  .b-stats b{display:block;font-size:17px;font-weight:700;letter-spacing:-.03em}
+  .b-stats span{font-size:9.5px;color:var(--muted)}
+  .b-auto{margin:8px 12px 0;font-size:10.5px;color:#137a3d;font-weight:600;line-height:1.35}
+  .b-shop{margin:12px 12px 10px;font-size:11px;color:var(--muted);text-align:center;word-break:break-word}
+  .b-ok{margin:4px 12px 14px;background:#0B8043;border-radius:12px;padding:10px;font-size:13px}
 
-  .g-top{padding:48px 12px 10px}
-  .g-logo{font-weight:700;font-size:21px;text-align:center;margin-bottom:6px;letter-spacing:-.03em}
+  /* 5. Google */
+  .g-top{padding:42px 12px 8px}
+  .g-logo{font-weight:700;font-size:19px;text-align:center;margin-bottom:5px;letter-spacing:-.03em}
   .g-logo span:nth-child(1){color:#4285F4}.g-logo span:nth-child(2){color:#EA4335}.g-logo span:nth-child(3){color:#FBBC05}.g-logo span:nth-child(4){color:#4285F4}.g-logo span:nth-child(5){color:#34A853}.g-logo span:nth-child(6){color:#EA4335}
-  .g-search{border:1px solid #E3E3E3;border-radius:999px;padding:7px 12px;font-weight:500;font-size:12.5px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-  .g-map{height:90px;margin:0 12px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(90deg,transparent 46%,#fff 46%,#fff 54%,transparent 54%),linear-gradient(0deg,transparent 40%,#fff 40%,#fff 47%,transparent 47%),linear-gradient(35deg,transparent 60%,#fff 60%,#fff 64%,transparent 64%),#E3EAD9}
-  .g-pin{position:absolute;left:50%;top:42%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
-  .g-pin b{background:#fff;border-radius:6px;padding:1px 6px;font-size:10.5px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
-  .g-pin i{font-style:normal;font-size:22px;line-height:1}
-  .g-res{margin:10px 12px 0;border:1.5px solid var(--gold);background:#FFFBEA;border-radius:12px;padding:10px}
-  .g-res b{display:block;font-size:14px;word-break:break-word}
-  .stars{color:#E8A400;letter-spacing:1px;font-size:13px}
-  .g-res .meta{font-size:12px;color:var(--muted)}
-  .g-meta2{font-size:11.5px;color:var(--muted);margin-top:2px}
-  .g-tag{display:inline-block;margin-top:4px;background:#E8F5EC;color:#137a3d;border-radius:6px;padding:0 6px;font-size:11px;font-weight:600}
-  .g-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:8px;text-align:center;font-size:11.5px;font-weight:600;color:var(--call)}
-  .g-acts span{background:#E8EFFD;border-radius:7px;padding:5px 0}
-  .g-thumb{display:none;float:right;width:48px;height:48px;border-radius:8px;background:var(--photo) center/cover;margin-left:8px}
+  .g-search{border:1px solid #E3E3E3;border-radius:999px;padding:6px 12px;font-weight:500;font-size:11.5px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+  .g-map{height:86px;margin:0 12px}
+  .g-dot{position:absolute;width:11px;height:11px;border-radius:50%;background:#B0B6C0;border:2px solid #fff}
+  .g-pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+  .g-pin b{background:#fff;border-radius:6px;padding:1px 6px;font-size:10px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+  .g-pin i{font-style:normal;font-size:21px;line-height:1}
+  .g-res{margin:8px 12px 0;border:1.5px solid var(--gold);background:#FFFBEA;border-radius:12px;padding:9px 10px}
+  .g-res > b{display:block;font-size:13px;word-break:break-word}
+  .g-rate{display:flex;align-items:center;gap:3px;font-size:11px}
+  .g-rate span{color:var(--muted)}
+  .g-res .meta,.g-meta2{font-size:10.5px;color:var(--muted)}
+  .g-tag{display:inline-block;margin-top:4px;background:#E8F5EC;color:#137a3d;border-radius:6px;padding:0 6px;font-size:10px;font-weight:600}
+  .g-acts{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:8px;color:#1A56DB}
+  .g-acts span{background:#E8EFFD;font-size:12px;padding:5px 0}
+  .g-thumb{display:none;float:right;width:44px;height:44px;border-radius:8px;background:var(--photo) center/cover;margin-left:8px}
   .screen.has-photo .g-thumb{display:block}
-  .g-other{margin:8px 12px 0;background:#F4F5F7;border-radius:10px;padding:10px}
-  .g-other i{display:block;height:7px;border-radius:4px;background:#E2E4E8}
-  .g-other i + i{width:60%;margin-top:5px}
-  .ptoast{position:absolute;left:10px;right:10px;bottom:16px;z-index:5;background:var(--ink);color:#fff;border-radius:14px;padding:9px 11px;font-size:12.5px;line-height:1.35;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none}
+  .g-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:8px 12px 0}
+  .g-photos span{aspect-ratio:1;border-radius:8px;background:#F4F5F7;display:grid;place-items:center;font-size:17px}
+  .g-review{margin-top:8px}
+  .g-other{margin:8px 12px 14px;display:flex;justify-content:space-between;gap:8px;border:1px solid #EEE;border-radius:10px;padding:8px 10px;font-size:10.5px;color:var(--muted)}
+  .g-other b{font-weight:600}
+  .ptoast{position:absolute;left:10px;right:10px;bottom:16px;z-index:7;background:var(--ink);color:#fff;border-radius:14px;padding:9px 11px;font-size:12px;line-height:1.35;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none}
   .ptoast.show{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.scr.active,.scr[data-scr="wa"].active [style*="--d"]{animation:none}}
 
   /* Plan summary under the phone (desktop) */
   .plan-strip{margin-top:18px;background:#fff;border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
@@ -486,7 +546,7 @@
     .see-btn{display:flex}
     .buy-col{max-width:520px;width:100%;margin:0 auto}
   }
-  @media(min-width:961px) and (max-height:820px){.phone{height:470px}}
+  @media(min-width:961px) and (max-height:820px){.phone{height:500px}}
   @media(min-width:961px) and (max-height:700px){.preview{position:static}}
 
   /* ================= Proof band ================= */
@@ -700,7 +760,7 @@
     summary{font-size:16.5px;padding:20px 0}
     details p{padding-right:0;font-size:15.5px}
   }
-  @media(max-width:400px){.phone{width:248px;height:490px}.logo{font-size:19px}}
+  @media(max-width:400px){.phone{width:256px;height:530px}.logo{font-size:19px}}
 </style>
 </head>
 <body>
@@ -866,7 +926,8 @@
       </div>
       <div class="phone">
         <span class="demo-tag"><span class="hi">उदाहरण</span><span class="en">Example</span></span>
-        <div class="screen" aria-live="polite">
+        <div class="screen" data-on="site" aria-live="polite">
+          <div class="sbar" aria-hidden="true"><span id="sbTime">10:41</span><svg viewBox="0 0 42 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/><path d="M24 3.2a7.5 7.5 0 0 1 9 0l-1.3 1.5a5.5 5.5 0 0 0-6.4 0zM26.2 5.9a4 4 0 0 1 4.6 0L28.5 9z"/><rect x="35" y="1.5" width="6" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1"/><rect x="36.2" y="2.7" width="3.6" height="5.6" rx=".8"/></svg></div>
           <div class="ptoast" id="ptoast" role="status"></div>
           <div class="scr active" data-scr="site"></div>
           <div class="scr" data-scr="app"></div>
@@ -1279,7 +1340,7 @@
     plumber:{e:"🔧",c:"#7DD3FC",hi:"प्लंबर / मिस्त्री",en:"Plumber / Mechanic",plan:"web",profit:400,cust:20,
       svc:{hi:["नल ठीक करना","पानी की टंकी","बाथरूम फिटिंग"],en:["Tap repair","Water tank","Bathroom fitting"]},
       q:{hi:"प्लंबर",en:"plumber"},
-      msg:{hi:"नल लीक हो रहा है, आज आ सकते हो?",en:"My tap is leaking, can you come today?"},
+      msg:{hi:"नल लीक हो रहा है, कल सुबह आ सकते हो?",en:"My tap is leaking, can you come tomorrow morning?"},
       order:{hi:"नल ठीक करना · आज शाम 5 बजे",en:"Tap repair · Today 5 PM"}},
     kirana:{e:"🛒",c:"#FDBA74",hi:"किराना",en:"Grocery",plan:"app",profit:100,cust:80,
       svc:{hi:["आटा, दाल, चावल","तेल, मसाले","घर तक डिलीवरी"],en:["Flour, dal, rice","Oil, spices","Home delivery"]},
@@ -1294,7 +1355,7 @@
     salon:{e:"💇",c:"#F9A8D4",hi:"सैलून / पार्लर",en:"Salon / Parlour",plan:"all",profit:200,cust:40,
       svc:{hi:["हेयर कट","फेशियल","दुल्हन मेकअप"],en:["Haircut","Facial","Bridal makeup"]},
       q:{hi:"सैलून",en:"salon"},
-      msg:{hi:"शाम 6 बजे हेयर कट का टाइम मिलेगा?",en:"Can I get a haircut slot at 6 PM?"},
+      msg:{hi:"कल शाम 6 बजे हेयर कट का टाइम मिलेगा?",en:"Can I get a haircut slot tomorrow at 6 PM?"},
       order:{hi:"हेयर कट · आज शाम 6 बजे",en:"Haircut · Today 6 PM"}},
     clinic:{e:"🩺",c:"#A5F3FC",hi:"क्लिनिक / डॉक्टर",en:"Clinic / Doctor",plan:"all",profit:300,cust:40,
       svc:{hi:["डॉक्टर से मिलें","जाँच","सुबह-शाम OPD"],en:["See the doctor","Check-ups","Morning & evening OPD"]},
@@ -1361,7 +1422,7 @@
       items:[["नल ठीक करना","Tap repair","₹150"],["पाइप लीकेज","Pipe leakage","₹300"],["टंकी साफ़ करना","Tank cleaning","₹500"],["बाथरूम फिटिंग","Bathroom fitting","₹1,500 से"]],
       tiles:[["🚰","नल","Taps"],["🛁","बाथरूम","Bathroom"],["💧","टंकी","Tank"],["🔧","पाइप","Pipes"]],
       cta:{hi:"प्लंबर बुलाएँ",en:"Call a plumber"},quick:[["रेट बताइए","Send rates"],["आज आ सकते हो?","Can you come today?"]],
-      slot:{svc:{hi:"नल ठीक करना",en:"Tap repair"},when:{hi:"आज शाम 5 बजे",en:"Today, 5 PM"},who:"सुनीता / Sunita"}},
+      slot:{svc:{hi:"नल ठीक करना",en:"Tap repair"},when:{hi:"कल सुबह 9 बजे",en:"Tomorrow, 9 AM"},who:"सुनीता / Sunita"}},
     kirana:{why:{hi:"ऐप से घर बैठे ऑर्डर, और WhatsApp पर पूरी रेट लिस्ट",en:"Orders from home through your app, full price list on WhatsApp"},tag:{hi:"🚚 घर तक डिलीवरी",en:"🚚 Home delivery"},hours:{hi:"सुबह 7 – रात 10",en:"7 AM – 10 PM"},kind:"order",
       items:[["आटा 5 किलो","Flour 5 kg","₹240"],["सरसों तेल 1 लीटर","Mustard oil 1 L","₹160"],["अरहर दाल 1 किलो","Toor dal 1 kg","₹150"],["चीनी 1 किलो","Sugar 1 kg","₹45"]],
       tiles:[["🍚","राशन","Groceries"],["🥛","दूध-दही","Dairy"],["🧴","साबुन-तेल","Soap & oil"],["🍪","बिस्कुट-नमकीन","Snacks"]],
@@ -1376,7 +1437,7 @@
       items:[["हेयर कट","Haircut","₹150"],["फेशियल","Facial","₹500"],["हेयर कलर","Hair colour","₹800"],["दुल्हन मेकअप","Bridal makeup","₹8,000 से"]],
       tiles:[["✂️","हेयर","Hair"],["💆","फेशियल","Facial"],["💅","नेल्स","Nails"],["👰","दुल्हन","Bridal"]],
       cta:{hi:"टाइम बुक करें",en:"Book a slot"},quick:[["आज का टाइम?","Today's slots?"],["रेट लिस्ट भेजें","Send price list"]],
-      slot:{svc:{hi:"हेयर कट + फेशियल",en:"Haircut + facial"},when:{hi:"आज शाम 6 बजे",en:"Today, 6 PM"},who:"प्रिया / Priya"}},
+      slot:{svc:{hi:"हेयर कट + फेशियल",en:"Haircut + facial"},when:{hi:"कल शाम 6 बजे",en:"Tomorrow, 6 PM"},who:"प्रिया / Priya"}},
     clinic:{why:{hi:"पहले से नंबर, अपने आप रिमाइंडर, और मरीज़ों की लाइन कम",en:"Advance tokens, automatic reminders and shorter queues"},tag:{hi:"⏰ बिना लाइन, पहले से नंबर",en:"⏰ Get your number ahead"},hours:{hi:"सुबह 10–2, शाम 5–8",en:"10–2 and 5–8"},kind:"slot",
       items:[["डॉक्टर की फीस","Doctor's fee","₹300"],["शुगर / BP जाँच","Sugar / BP check","₹100"],["ब्लड टेस्ट","Blood test","₹400 से"],["घर पर विज़िट","Home visit","₹800"]],
       tiles:[["👨‍⚕️","डॉक्टर","Doctor"],["🧪","जाँच","Tests"],["💊","दवा","Medicines"],["🏠","घर पर","Home visit"]],
@@ -1432,83 +1493,189 @@
       : `Suggested for you: + Google listing ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`;
   }
 
+  // More detail for each business's preview: rating, trust badges, an offer, a review,
+  // and today's numbers for the owner. All of it is example content.
+  const EXTRA = {
+    electrician:{rate:"4.8",rev:126,since:2011,km:"1.2",close:{hi:"रात 8 बजे बंद",en:"Closes 8 PM"},
+      badges:[["⚡","लाइसेंस वाले मिस्त्री","Licensed electricians"],["⏱️","1 घंटे में विज़िट","Visit within 1 hour"],["🛡️","30 दिन की वारंटी","30-day warranty"]],
+      offer:{hi:"🎉 त्योहार ऑफर: AC सर्विस पर 10% छूट",en:"🎉 Festive offer: 10% off AC service"},
+      review:{who:"अमित / Amit",hi:"रात 10 बजे भी आ गए। काम साफ़, रेट सही।",en:"Came even at 10 PM. Neat work, fair rates."},
+      today:[6,"₹3,400"]},
+    plumber:{rate:"4.7",rev:98,since:2014,km:"0.9",close:{hi:"शाम 7 बजे बंद",en:"Closes 7 PM"},
+      badges:[["✅","जाँचे हुए प्लंबर","Verified plumbers"],["⏱️","उसी दिन सर्विस","Same-day service"],["🛡️","15 दिन की वारंटी","15-day warranty"]],
+      offer:{hi:"🎉 टंकी सफ़ाई के साथ फ्री चेक-अप",en:"🎉 Free check-up with tank cleaning"},
+      review:{who:"सीमा / Seema",hi:"लीकेज आधे घंटे में ठीक। बहुत भरोसेमंद।",en:"Leak fixed in 30 minutes. Very reliable."},
+      today:[5,"₹2,150"]},
+    kirana:{rate:"4.6",rev:210,since:1998,km:"0.4",close:{hi:"रात 10 बजे बंद",en:"Closes 10 PM"},
+      badges:[["🥬","रोज़ ताज़ा सामान","Fresh stock daily"],["🚚","₹500+ पर फ्री डिलीवरी","Free delivery over ₹500"],["💳","UPI / कैश","UPI or cash"]],
+      offer:{hi:"🎉 ऐप से पहले ऑर्डर पर ₹50 छूट",en:"🎉 ₹50 off your first app order"},
+      review:{who:"नीतू / Neetu",hi:"रात को ऐप से ऑर्डर किया, सुबह 8 बजे सामान घर पर।",en:"Ordered on the app at night, delivered by 8 AM."},
+      today:[18,"₹7,850"]},
+    medical:{rate:"4.8",rev:175,since:2006,km:"0.7",close:{hi:"रात 11 बजे बंद",en:"Closes 11 PM"},
+      badges:[["👨‍⚕️","लाइसेंस वाले फार्मासिस्ट","Licensed pharmacist"],["🛵","1 घंटे में डिलीवरी","Delivery in 1 hour"],["✅","असली दवाइयाँ","Genuine medicines"]],
+      offer:{hi:"🎉 महीने की दवाइयों पर 15% छूट",en:"🎉 15% off monthly medicines"},
+      review:{who:"राजेश / Rajesh",hi:"पर्ची की फोटो भेजी, 40 मिनट में दवा घर पर।",en:"Sent the prescription photo, medicines arrived in 40 minutes."},
+      today:[24,"₹9,600"]},
+    salon:{rate:"4.9",rev:230,since:2016,km:"1.1",close:{hi:"रात 9 बजे बंद",en:"Closes 9 PM"},
+      badges:[["✨","साफ़-सुथरे औज़ार","Hygienic tools"],["👩","महिला स्टाइलिस्ट","Women stylists"],["👰","दुल्हन मेकअप एक्सपर्ट","Bridal experts"]],
+      offer:{hi:"🎉 त्योहार ग्लो फेशियल सिर्फ ₹399",en:"🎉 Festive glow facial at ₹399"},
+      review:{who:"पूजा / Pooja",hi:"WhatsApp पर टाइम बुक किया, ज़रा भी इंतज़ार नहीं।",en:"Booked on WhatsApp, no waiting at all."},
+      today:[11,"₹5,200"]},
+    clinic:{rate:"4.8",rev:312,since:2009,km:"1.5",close:{hi:"रात 8 बजे बंद",en:"Closes 8 PM"},
+      badges:[["🩺","MBBS, MD डॉक्टर","MBBS, MD doctor"],["🎟️","WhatsApp पर नंबर","Token on WhatsApp"],["🧪","यहीं जाँच","Lab tests here"]],
+      offer:{hi:"🎉 रविवार को BP और शुगर जाँच फ्री",en:"🎉 Free BP and sugar check on Sundays"},
+      review:{who:"सुनील / Sunil",hi:"घर से नंबर लगाया, सिर्फ 5 मिनट रुकना पड़ा।",en:"Got my token from home, waited just 5 minutes."},
+      today:[32,"₹9,600"]},
+    coaching:{rate:"4.9",rev:88,since:2015,km:"2.0",close:{hi:"रात 8 बजे बंद",en:"Closes 8 PM"},
+      badges:[["👥","20 बच्चों का बैच","Batches of 20"],["📝","हर हफ्ते टेस्ट","Weekly tests"],["💡","रोज़ डाउट क्लास","Daily doubt classes"]],
+      offer:{hi:"🎉 इस हफ्ते फ्री डेमो क्लास",en:"🎉 Free demo class this week"},
+      btn:{hi:"डेमो लें",en:"Try demo"},
+      review:{who:"कविता / Kavita",hi:"बेटे के मैथ्स के नंबर 60 से 85 हो गए।",en:"My son's maths marks went from 60 to 85."},
+      today:[4,"₹7,200"]},
+    school:{rate:"4.7",rev:140,since:2001,km:"2.4",close:{hi:"दोपहर 2 बजे बंद",en:"Closes 2 PM"},
+      badges:[["🏫","CBSE स्कूल","CBSE school"],["💻","स्मार्ट क्लास","Smart classrooms"],["🚌","GPS वाली बस","GPS school bus"]],
+      offer:{hi:"📢 एडमिशन खुले हैं: 2026–27",en:"📢 Admissions open for 2026–27"},
+      review:{who:"मनोज / Manoj",hi:"फीस रिमाइंडर और नोटिस सब ऐप पर, बहुत आसान।",en:"Fee reminders and notices on the app make life easy."},
+      today:[9,"₹48,000"],todayLbl:{hi:"आज जमा हुई फीस",en:"fees collected today"},btn:{hi:"पूछें",en:"Enquire"}},
+    dhaba:{rate:"4.6",rev:540,since:2004,km:"0.8",close:{hi:"रात 11 बजे बंद",en:"Closes 11 PM"},
+      badges:[["🔥","ताज़ा तंदूर","Fresh tandoor"],["🛵","30 मिनट में डिलीवरी","Delivery in 30 min"],["💰","बिना कमीशन वाले दाम","No-commission prices"]],
+      offer:{hi:"🎉 ₹300+ के ऑर्डर पर लस्सी फ्री",en:"🎉 Free lassi on orders over ₹300"},
+      review:{who:"विक्रम / Vikram",hi:"वहीं वाला स्वाद, और डिलीवरी ऐप से सस्ता।",en:"Same taste as dining in, and cheaper than delivery apps."},
+      today:[27,"₹8,640"]},
+    clothes:{rate:"4.7",rev:160,since:2008,km:"1.3",close:{hi:"रात 9 बजे बंद",en:"Closes 9 PM"},
+      badges:[["✨","नए डिज़ाइन","Latest designs"],["🔁","7 दिन में बदलें","7-day exchange"],["🧵","सिलाई की सुविधा","Tailoring available"]],
+      offer:{hi:"🎉 शादी सीज़न: लहंगों पर 20% छूट",en:"🎉 Wedding season: 20% off lehengas"},
+      btn:{hi:"देखें",en:"View"},
+      review:{who:"अंजलि / Anjali",hi:"WhatsApp पर फोटो देखकर घर बैठे साड़ी चुन ली।",en:"Picked my saree at home from the WhatsApp photos."},
+      today:[8,"₹14,300"]},
+    lawyer:{rate:"4.9",rev:64,since:2010,km:"1.8",close:{hi:"शाम 6 बजे बंद",en:"Closes 6 PM"},
+      badges:[["⚖️","15+ साल का अनुभव","15+ years of practice"],["🧾","GST और ITR एक्सपर्ट","GST and ITR experts"],["🔒","पूरी गोपनीयता","Fully confidential"]],
+      offer:{hi:"🎉 पहली सलाह फोन पर फ्री",en:"🎉 First consultation by phone, free"},
+      review:{who:"दीपक / Deepak",hi:"GST रजिस्ट्रेशन 3 दिन में, कोई भाग-दौड़ नहीं।",en:"GST registration done in 3 days, no running around."},
+      today:[5,"₹6,500"]},
+    gym:{rate:"4.8",rev:190,since:2017,km:"1.0",close:{hi:"रात 10 बजे बंद",en:"Closes 10 PM"},
+      badges:[["🏅","सर्टिफाइड ट्रेनर","Certified trainers"],["❄️","AC जिम","Air-conditioned"],["👩","लेडीज़ बैच अलग","Separate ladies batch"]],
+      offer:{hi:"🎉 त्योहार ऑफर: 3 महीने ₹1,999",en:"🎉 Festive offer: 3 months for ₹1,999"},
+      btn:{hi:"जॉइन करें",en:"Join"},
+      review:{who:"रोहित / Rohit",hi:"मेंबरशिप खत्म होने से पहले ही रिमाइंडर आ गया।",en:"Got a reminder before my membership ran out."},
+      today:[7,"₹5,600"]}
+  };
+
   // Build the five phone screens for the chosen business
   function buildScreens(){
-    const t = TYPES[type], d = SHOW[type], L = lang === "hi" ? 0 : 1, hi = lang === "hi";
+    const t = TYPES[type], d = SHOW[type], x = EXTRA[type], L = lang === "hi" ? 0 : 1, hi = lang === "hi";
     const isOrder = d.kind === "order";
     const W = (h, e) => hi ? h : e;
-    const who = x => x.split(" / ")[L];
+    const who = s => s.split(" / ")[L];
     // Prices are written in Hindi; adapt the words for English mode
     const P = v => hi ? v : v.replace(/^(.*) से$/, "from $1").replace("/महीना", "/month").replace("फीस जानें", "Ask fees");
+    const stars = `<span class="stars">★★★★★</span>`;
+    const rating = `<b>${x.rate}</b> ${stars} <span>(${x.rev})</span>`;
 
-    // 1. Website
+    // 1. Website: scrolls like a real one-page shop site
     $('[data-scr="site"]').innerHTML = `
       <div class="url">🔒 www.<span class="js-url"></span>.in</div>
-      <div class="s-head"><div class="em">${t.e}</div><b class="js-name"></b>
-        <small>📍 <span class="js-area"></span> · ${W("खुला है","Open")} · ${d.hours[lang]}</small><br><span class="s-tag">${d.tag[lang]}</span></div>
-      <div class="s-body">
+      <div class="scroll">
+        <div class="s-head"><div class="em">${t.e}</div><b class="js-name"></b>
+          <div class="s-rate">${rating} · ${W(`${x.since} से`, `Since ${x.since}`)}</div>
+          <small>📍 <span class="js-area"></span> · <span class="open">● ${W("खुला है","Open")}</span> · ${d.hours[lang]}</small>
+          <span class="s-tag">${d.tag[lang]}</span></div>
+        <div class="s-acts"><span data-ptoast="call">📞<i>${W("कॉल","Call")}</i></span><span data-ptoast="wa">💬<i>WhatsApp</i></span><span data-ptoast="map">🧭<i>${W("रास्ता","Directions")}</i></span></div>
+        <div class="s-offer">${x.offer[lang]}</div>
+        <div class="s-h">${isOrder ? W("रेट लिस्ट","Price list") : W("सर्विस और रेट","Services & rates")}</div>
         <div class="s-items">${d.items.map(i => `<div class="s-item"><span>${i[L]}</span><em>${P(i[2])}</em></div>`).join("")}</div>
-        <div class="s-btns">
-          <button type="button" style="background:var(--call)" data-ptoast="call">📞 ${W("कॉल करें","Call")}</button>
-          <button type="button" style="background:var(--wa)" data-ptoast="wa">💬 WhatsApp</button>
-        </div>
+        <div class="s-badges">${x.badges.map(b => `<span><i>${b[0]}</i>${b[1 + L]}</span>`).join("")}</div>
+        <div class="s-h">${W("ग्राहक क्या कहते हैं","What customers say")}</div>
+        <div class="s-rev">${stars}<p>“${x.review[lang]}”</p><small>${who(x.review.who)} · Google</small></div>
+        <div class="s-h">${W("हमें यहाँ ढूंढें","Find us")}</div>
+        <div class="s-map"><i>📍</i></div>
+        <div class="s-addr">${W("दुकान नं. 12, मेन मार्केट","Shop 12, Main Market")}, <span class="js-area"></span><br>🕘 ${d.hours[lang]}<br>💳 UPI · ${W("कैश","Cash")} · ${W("कार्ड","Card")}</div>
+      </div>
+      <div class="s-btns">
+        <button type="button" style="background:var(--call)" data-ptoast="call">📞 ${W("कॉल करें","Call")}</button>
+        <button type="button" style="background:#0B8043" data-ptoast="wa">💬 WhatsApp</button>
       </div>`;
 
-    // 2. App
+    // 2. App: offer, categories, popular items with Add/Book, a cart bar for shops that take orders
     $('[data-scr="app"]').innerHTML = `
       <div class="a-top">
-        <div class="a-row"><div class="a-icon">${t.e}</div><div><small>${W("👋 नमस्ते!","👋 Hello!")}</small><b class="js-name"></b></div></div>
+        <div class="a-row"><div class="a-icon">${t.e}</div><div><small>${W("👋 नमस्ते!","👋 Hello!")}</small><b class="js-name"></b></div><span class="a-bell">🔔</span></div>
         <div class="a-search">🔍 ${W("यहाँ खोजें...","Search here...")}</div>
-        <span class="a-play">▶ Google Play</span>
       </div>
-      <div class="a-grid">${d.tiles.map(x => `<div class="a-tile"><i>${x[0]}</i>${x[1 + L]}</div>`).join("")}</div>
-      <button type="button" class="a-cta" data-ptoast="app">${d.cta[lang]}</button>
-      <div class="a-nav"><span>🏠</span><span>${isOrder ? "🛒" : "📅"}</span><span>🔔</span><span>👤</span></div>`;
+      <div class="scroll">
+        <div class="a-banner">${x.offer[lang]}</div>
+        <div class="a-grid">${d.tiles.map(c => `<div class="a-tile"><i>${c[0]}</i>${c[1 + L]}</div>`).join("")}</div>
+        <div class="a-h">${W("सबसे ज़्यादा पसंद","Most popular")}</div>
+        <div class="a-list">${d.items.map((i, k) => `<div class="a-item"><span>${i[L]}<em>${P(i[2])}</em></span><button type="button" data-ptoast="app" class="${isOrder && k < 2 ? "added" : ""}">${isOrder ? (k < 2 ? "✓ " + W("जोड़ा","Added") : W("+ जोड़ें","+ Add")) : (x.btn ? x.btn[lang] : W("बुक करें","Book"))}</button></div>`).join("")}</div>
+        <div class="a-play">▶ ${W("Google Play पर","On Google Play")} · ${x.rate} ★</div>
+      </div>
+      ${isOrder
+        ? `<button type="button" class="a-cart" data-ptoast="app"><span>🛒 2 ${W("सामान","items")} · ${d.order.total}</span><b>${W("ऑर्डर करें →","Order →")}</b></button>`
+        : `<button type="button" class="a-cta" data-ptoast="app">${d.cta[lang]}</button>`}
+      <div class="a-nav"><span class="on">🏠</span><span>${isOrder ? "🛒" : "📅"}</span><span>🔔</span><span>👤</span></div>`;
 
-    // 3. WhatsApp
+    // 3. WhatsApp: a real conversation that plays out message by message
+    const done = isOrder
+      ? W(`✅ ऑर्डर मिल गया: ${d.order.total}<br>🛵 30 मिनट में घर पर। UPI या कैश।`, `✅ Order received: ${d.order.total}<br>🛵 At your door in 30 min. UPI or cash.`)
+      : W(`✅ बुकिंग पक्की: ${d.slot.svc.hi}<br>📅 ${d.slot.when.hi}<br>⏰ एक घंटा पहले रिमाइंडर आएगा।`, `✅ Booked: ${d.slot.svc.en}<br>📅 ${d.slot.when.en}<br>⏰ We'll remind you an hour before.`);
     $('[data-scr="wa"]').innerHTML = `
-      <div class="w-head"><div class="w-av">${t.e}</div><div><b class="js-name"></b><small>${W("बिज़नेस अकाउंट ✓","Business account ✓")}</small></div></div>
+      <div class="w-head"><span class="w-back">‹</span><div class="w-av">${t.e}</div><div><b class="js-name"></b><small>${W("बिज़नेस अकाउंट ✓ · तुरंत जवाब","Business account ✓ · replies instantly")}</small></div></div>
       <div class="w-chat">
-        <div class="msg in">${t.msg[lang]}<small>10:41</small></div>
-        <div class="auto-tag">${W("⚡ अपने आप जवाब","⚡ Auto reply")}</div>
-        <div class="msg out">${W("नमस्ते! 🙏","Hello! 🙏")} <b class="js-name"></b> ${W("में आपका स्वागत है।","welcomes you.")}<br>
+        <div class="w-day">${W("आज","Today")}</div>
+        <div class="msg in" style="--d:0">${t.msg[lang]}<small>10:41</small></div>
+        <div class="auto-tag" style="--d:1">${W("⚡ अपने आप जवाब","⚡ Auto reply")}</div>
+        <div class="msg out" style="--d:1">${W("नमस्ते! 🙏","Hello! 🙏")} <b class="js-name"></b> ${W("में आपका स्वागत है।","welcomes you.")}<br>
           ${d.items.slice(0,3).map(i => `• ${i[L]}: ${P(i[2])}`).join("<br>")}<small>10:41 ✓✓</small></div>
-        <div class="w-quick">${d.quick.map(q => `<span>${q[L]}</span>`).join("")}</div>
-      </div>`;
+        <div class="w-quick" style="--d:2">${d.quick.map(q => `<span>${q[L]}</span>`).join("")}</div>
+        <div class="msg in" style="--d:3">${isOrder ? W("हाँ, भेज दीजिए 👍","Yes, please send it 👍") : W("ठीक है, बुक कर दीजिए 👍","OK, please book it 👍")}<small>10:42</small></div>
+        <div class="msg out" style="--d:4">${done}<small>10:42 ✓✓</small></div>
+      </div>
+      <div class="w-input"><span>${W("मैसेज","Message")}</span><i>🎤</i></div>`;
 
-    // 4. Booking / order
+    // 4. Booking / order: what the owner sees at night, plus today's numbers
     const body = isOrder
-      ? `<div class="b-list"><div class="b-head">🛒 ${W("नया ऑर्डर","New order")}</div>
+      ? `<div class="b-list"><div class="b-head">🛒 ${W("नया ऑर्डर","New order")} <span class="b-paid">${W("UPI से पेड","Paid by UPI")}</span></div>
            ${d.order.rows.map(r => `<div class="row"><span>${r[L]}</span><span>${r[2]}</span></div>`).join("")}
            <div class="row tot"><span>${W("कुल","Total")}</span><span>${d.order.total}</span></div>
-           <div class="who">👤 ${who(d.order.who)}</div></div>`
-      : `<div class="b-list"><div class="b-head">📅 ${W("नई बुकिंग","New booking")}</div>
+           <div class="who">👤 ${who(d.order.who)} · 📞 98XXX XX210</div></div>`
+      : `<div class="b-list"><div class="b-head">📅 ${W("नई बुकिंग","New booking")} <span class="b-paid">${W("पक्की","Confirmed")}</span></div>
            <div class="row"><span>${W("काम","Service")}</span><span>${d.slot.svc[lang]}</span></div>
            <div class="row"><span>${W("समय","Time")}</span><span>${d.slot.when[lang]}</span></div>
-           <div class="who">👤 ${who(d.slot.who)}</div></div>`;
+           <div class="who">👤 ${who(d.slot.who)} · 📞 98XXX XX210</div></div>`;
     $('[data-scr="book"]').innerHTML = `
       <span class="b-moon">🌙</span>
       <div class="b-top"><small>${W("रात 11:30 बजे","11:30 PM")}</small><b>${isOrder ? W("🔔 नया ऑर्डर आया!","🔔 New order!") : W("🔔 नई बुकिंग आई!","🔔 New booking!")}</b></div>
-      ${body}
-      <div class="b-shop">${W("आप सो रहे थे, फिर भी","You were asleep, and still")} <b class="js-name"></b> ${W("को काम मिला","got work")}</div>
+      <div class="scroll">
+        ${body}
+        <div class="b-stats"><div><b>${x.today[0]}</b><span>${isOrder ? W("आज के ऑर्डर","orders today") : W("आज की बुकिंग","bookings today")}</span></div>
+          <div><b>${x.today[1]}</b><span>${x.todayLbl ? x.todayLbl[lang] : W("आज का काम","today's business")}</span></div></div>
+        <div class="b-auto">✓ ${W("ग्राहक को WhatsApp पर अपने आप कन्फर्मेशन चला गया","Customer got a WhatsApp confirmation automatically")}</div>
+        <div class="b-auto">✓ ${isOrder ? W("बिल अपने आप बना और सेव हुआ","Bill created and saved automatically") : W("सुबह आपको रिमाइंडर मिलेगा","You'll get a reminder in the morning")}</div>
+        <div class="b-shop">${W("आप सो रहे थे, फिर भी","You were asleep, and still")} <b class="js-name"></b> ${W("को काम मिला","got work")}</div>
+      </div>
       <button type="button" class="b-ok" data-ptoast="ok">${W("पक्का करें","Confirm")}</button>`;
 
-    // 5. Google
+    // 5. Google: the search, your pin among others, the full business card
     $('[data-scr="google"]').innerHTML = `
       <div class="g-top">
         <div class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
         <div class="g-search">🔍 ${t.q[lang]} <span class="js-area-q"></span></div>
       </div>
-      <div class="g-map"><div class="g-pin"><b class="js-name"></b><i>📍</i></div></div>
-      <div class="g-res">
-        <span class="g-thumb"></span><b class="js-name"></b>
-        <span class="stars">★★★★★</span>
-        <div class="meta">${t[lang]} · ${W("खुला है","Open now")}</div>
-        <div class="g-meta2">🕘 ${d.hours[lang]}</div>
-        <span class="g-tag">${d.tag[lang]}</span>
-        <div class="g-acts"><span>${W("कॉल","Call")}</span><span>${W("रास्ता","Route")}</span><span>${W("वेबसाइट","Website")}</span></div>
-      </div>
-      <div class="g-other"><i></i><i></i></div>`;
+      <div class="scroll">
+        <div class="g-map"><span class="g-dot" style="left:18%;top:62%"></span><span class="g-dot" style="left:78%;top:30%"></span><span class="g-dot" style="left:70%;top:78%"></span>
+          <div class="g-pin"><b class="js-name"></b><i>📍</i></div></div>
+        <div class="g-res">
+          <span class="g-thumb"></span><b class="js-name"></b>
+          <div class="g-rate">${rating}</div>
+          <div class="meta">${t[lang]} · ${x.km} km</div>
+          <div class="g-meta2"><span class="open">${W("खुला है","Open")}</span> · ${x.close[lang]}</div>
+          <span class="g-tag">${d.tag[lang]}</span>
+          <div class="g-acts"><span data-ptoast="call">📞<i>${W("कॉल","Call")}</i></span><span data-ptoast="map">🧭<i>${W("रास्ता","Route")}</i></span><span>🌐<i>${W("वेबसाइट","Website")}</i></span><span>↗<i>${W("शेयर","Share")}</i></span></div>
+        </div>
+        <div class="g-photos"><span style="background:var(--shop)">${t.e}</span>${d.tiles.map(c => c[0]).filter(e => e !== t.e).slice(0, 3).map(e => `<span>${e}</span>`).join("")}</div>
+        <div class="g-review">${stars} “${x.review[lang]}”<small>${who(x.review.who)}</small></div>
+        <div class="g-other"><b>${W("दूसरी दुकान","Another shop")}</b><span>3.9 ★ · ${W("वेबसाइट नहीं","No website")}</span></div>
+      </div>`;
 
     $(".js-booktab").textContent = isOrder ? W("ऑर्डर","Order") : W("बुकिंग","Booking");
   }
@@ -1558,6 +1725,7 @@
     $$(".js-name").forEach(el => el.textContent = name);
     $$(".js-area").forEach(el => el.textContent = area || (lang === "hi" ? "आपका इलाका" : "Your area"));
     $$(".js-area-q").forEach(el => el.textContent = area || (lang === "hi" ? "पास में" : "near me"));
+    if (typeof autoScroll === "function") autoScroll();
     $$(".js-url").forEach(el => el.textContent = (name.toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, "") || "aapkidukaan"));
     // keep the chosen business visible in the sideways-scrolling row on phones
     const sel = typesBox.querySelector('[aria-pressed="true"]');
@@ -1732,10 +1900,29 @@
     cur = i;
     $$(".scr").forEach(s => s.classList.toggle("active", s.dataset.scr === order[i]));
     $$(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === order[i] ? "true" : "false"));
+    screenEl.dataset.on = order[i];
+    $("#sbTime").textContent = order[i] === "book" ? "11:30" : "10:41";
+    autoScroll();
   }
+  // Long screens scroll slowly by themselves, like someone reading; a touch stops it
+  let glide = null;
+  function autoScroll(){
+    cancelAnimationFrame(glide);
+    const box = $(".scr.active .scroll"); if (!box) return;
+    box.scrollTop = 0;
+    const max = box.scrollHeight - box.clientHeight; if (reduced || max < 8) return;
+    const t0 = performance.now() + 1200, dur = Math.min(3800, max * 12);
+    const step = now => {
+      const k = Math.min(1, Math.max(0, (now - t0) / dur));
+      box.scrollTop = max * (k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
+      if (k < 1) glide = requestAnimationFrame(step);
+    };
+    glide = requestAnimationFrame(step);
+  }
+  ["pointerdown", "wheel", "touchstart"].forEach(ev => screenEl.addEventListener(ev, () => cancelAnimationFrame(glide), { passive: true }));
   $$(".tab").forEach(b => b.addEventListener("click", () => { stopDemo(); clearInterval(timer); timer = null; show(order.indexOf(b.dataset.tab)); }));
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function startRotate(){ if (!reduced && !timer) timer = setInterval(() => show((cur + 1) % order.length), 3500); }
+  function startRotate(){ if (!reduced && !timer) timer = setInterval(() => show((cur + 1) % order.length), 6000); }
 
   // Opening demo: three example shops build themselves, then it's the visitor's turn
   const DEMO = [
@@ -1849,6 +2036,7 @@
     const M = {
       call: {hi:"📞 ग्राहक का कॉल सीधे आपके फोन पर आएगा", en:"📞 The customer's call comes straight to your phone"},
       wa:   {hi:"💬 ग्राहक का मैसेज सीधे आपके WhatsApp पर, और जवाब अपने आप", en:"💬 Customer messages reach your WhatsApp, with automatic replies"},
+      map:  {hi:"🧭 ग्राहक को सीधे आपकी दुकान तक का रास्ता मिलेगा", en:"🧭 Customers get directions straight to your shop"},
       app:  {hi: `📱 ग्राहक आपके ऐप से सीधे "${SHOW[type].cta.hi}" कर सकेगा`, en: `📱 Customers can "${SHOW[type].cta.en}" straight from your app`},
       ok:   {hi: isOrder ? "✅ ऑर्डर पक्का! ग्राहक को अपने आप मैसेज चला गया" : "✅ बुकिंग पक्की! ग्राहक को अपने आप मैसेज चला गया",
              en: isOrder ? "✅ Order confirmed! The customer got a message automatically" : "✅ Booking confirmed! The customer got a message automatically"}
