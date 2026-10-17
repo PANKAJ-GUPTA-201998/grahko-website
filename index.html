@@ -82,7 +82,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Website + Android app",
-       "description": "Website, Android app on Google Play, Google Maps listing and WhatsApp Business setup"
+       "description": "Website, Android app on Google Play, Google Maps listing, WhatsApp Business setup and logo"
       }
      },
      {
@@ -90,7 +90,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Complete package",
-       "description": "Website, app and automatic WhatsApp bookings/orders with monthly support"
+       "description": "Website, app, automatic WhatsApp bookings/orders, UPI payments, Instagram and Facebook pages, review QR standee, and monthly updates with local SEO"
       }
      },
      {
@@ -99,6 +99,22 @@
        "@type": "Service",
        "name": "Custom software",
        "description": "School portals, medical store billing, lawyer/CA client systems"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Local marketing add-ons",
+       "description": "Local SEO, Google Ads, Instagram and Facebook ads, social media management, WhatsApp offer messages, review booster, JustDial, IndiaMART, Swiggy and Zomato listings"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Branding and shop tools",
+       "description": "Logo design, shop photoshoot, promo reels, print kit, business email, UPI payments, product catalogue, billing and stock software, loyalty cards"
       }
      }
     ]
@@ -570,7 +586,7 @@
   }
   /* Wide screens: form, phone and plan side by side, sized to fit one screen */
   @media(min-width:1100px){
-    .studio{min-height:calc(100svh - 64px);display:flex;align-items:center;padding:12px 0}
+    .studio{min-height:calc(100svh - 64px);display:flex;align-items:center;padding:10px 0}
     .studio > .wrap{width:100%}
     .stage-grid{grid-template-columns:minmax(0,1fr) 300px 320px;grid-template-areas:"build prev buy";gap:24px;align-items:center}
     .preview{position:static}
@@ -723,6 +739,34 @@
     .extras{padding:24px}
   }
 
+  /* What each plan includes, at a glance */
+  .incl{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+  .incl > span{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:2px 7px;font-size:11px;font-weight:600;background:var(--sand-2);color:#9AA0AC;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.25)}
+  .incl > span.on{background:#E9F6EE;color:#0B6B35;text-decoration:none}
+  .incl > span.on:not(.plus)::before{content:"✓";font-weight:700}
+  .incl > span.plus{background:var(--gold-soft);color:var(--gold-ink)}
+  .extras{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:14.5px;color:var(--muted)}
+  .extras b{color:var(--ink)}
+  .extras .link{font-size:14.5px}
+
+  /* ================= Add-on services ================= */
+  .addons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ad-group{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px 10px}
+  .ad-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .ad-head .svc-ic{margin:0;width:40px;height:40px;border-radius:12px}
+  .ad-head .svc-ic .i{width:20px;height:20px}
+  .ad-head h3{font-size:17px;letter-spacing:-.02em}
+  .ad-group ul{list-style:none}
+  .ad-group li a{display:block;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+  .ad-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .ad-group li a b{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
+  .ad-group li a small{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}
+  .ad-group li a em{font-style:normal;font-weight:700;font-size:13.5px;white-space:nowrap}
+  .ad-group li a:hover b{text-decoration:underline}
+  .ad-note{margin-top:16px;font-size:13px;color:var(--muted)}
+  @media(max-width:1060px){.addons{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.addons{grid-template-columns:1fr}}
+
   /* ================= Steps ================= */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
   .step{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px}
@@ -842,7 +886,7 @@
   @media(max-width:400px){.phone{width:256px;height:530px}.logo{font-size:19px}}
   /* Desktop: every section is one screen, content centred, nothing cut off */
   @media(min-width:1100px){
-    #services,#calc,#why,#pricing,#how,#work,#faq,#contact{min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vh,72px) 0}
+    #services,#calc,#why,#pricing,#addons,#how,#work,#faq,#contact{min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vh,72px) 0}
     #calc .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"head out" "fomo out" "in out";column-gap:56px;align-items:start}
     #calc .head{grid-area:head;margin-bottom:18px}
     #calc .fomo{grid-area:fomo;margin:0 0 22px}
@@ -868,19 +912,36 @@
     .plan ul{margin:12px 0 16px;padding-top:12px;gap:5px;font-size:13.5px}
     .plan{padding:22px 20px}
     .plan .btn{min-height:44px}
-    .extras{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;padding:14px 22px;margin-top:12px}
-    .extras h3{margin:0;font-size:14.5px;letter-spacing:-.01em}
-    .extra-list{display:flex;flex-wrap:wrap;gap:6px 20px}
-    .extra-list div{border:0;padding:0;font-size:14px;gap:8px}
+    .extras{padding:14px 22px;margin-top:12px}
+    #addons .head{margin-bottom:24px;max-width:none}
+    .ad-group li a{padding:8px 0}
+    .ad-group{padding:18px 18px 8px}
     #pricing{padding:24px 0}
     .services .svc{padding:26px 24px}
     .svc-ic{margin-bottom:18px}
   }
+  @media(min-width:1100px) and (max-height:860px){#pricing .lede{display:none}}
+  @media(min-width:1100px) and (max-height:780px){
+    #pricing{padding:18px 0}
+    .plan .for,#addons .lede,#calc .lede,.anchor,.plan .free-note{display:none}
+    .price{font-size:32px;margin-top:10px}
+    .plan ul{gap:3px;margin:10px 0 12px;padding-top:10px}
+    .plan .btn{min-height:40px}
+    #calc{padding:24px 0}
+    #calc .head{margin-bottom:12px}
+    .fomo{font-size:15.5px}
+    #calc .calc-in{padding:20px 26px}
+    #calc .slider + .slider{margin-top:14px}
+    .slider output{font-size:30px}
+    #calc .calc-out{padding:30px}
+  }
   /* Short laptop screens (e.g. 1366 x 768): trim secondary lines so each section still fits */
   @media(min-width:1100px) and (max-height:720px){
-    #services,#calc,#why,#how,#work,#faq,#contact{padding:24px 0}
+    #services,#calc,#why,#addons,#how,#work,#faq,#contact{padding:24px 0}
     #pricing{padding:18px 0}
-    #calc .lede,#pricing .lede,.plan .for{display:none}
+    #calc .lede,#pricing .lede,#addons .lede,.plan .for,.plan .free-note,.anchor,.extras{display:none}
+    .ad-group li a small{display:none}
+    .incl{margin-top:8px}
     #calc .head,#pricing .head{margin-bottom:12px}
     .fomo{font-size:15.5px}
     #calc .calc-in{padding:20px 26px}
@@ -938,7 +999,7 @@
       <a href="#studio" data-sec="studio"><span class="hi">अपनी दुकान देखिए</span><span class="en">See your shop</span></a>
       <a href="#services" data-sec="services"><span class="hi">हम क्या करते हैं</span><span class="en">What we do</span></a>
       <a href="#pricing" data-sec="pricing"><span class="hi">दाम</span><span class="en">Pricing</span></a>
-      <a href="#how" data-sec="how"><span class="hi">कैसे होता है</span><span class="en">How it works</span></a>
+      <a href="#addons" data-sec="addons"><span class="hi">ऐड-ऑन</span><span class="en">Add-ons</span></a>
       <a href="#faq" data-sec="faq"><span class="hi">सवाल</span><span class="en">FAQ</span></a>
     </div>
     <div class="nav-right">
@@ -975,6 +1036,7 @@
       <a href="#calc" data-sec="calc"><svg class="i" aria-hidden="true"><use href="#i-calc"/></svg><span class="hi">कितना फायदा</span><span class="en">Your gain</span></a>
       <a href="#why" data-sec="why"><svg class="i" aria-hidden="true"><use href="#i-scale"/></svg><span class="hi">हम ही क्यों</span><span class="en">Why Grahko</span></a>
       <a href="#pricing" data-sec="pricing"><svg class="i" aria-hidden="true"><use href="#i-tag"/></svg><span class="hi">दाम</span><span class="en">Pricing</span></a>
+      <a href="#addons" data-sec="addons"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span class="hi">ऐड-ऑन सर्विस</span><span class="en">Add-on services</span></a>
       <a href="#how" data-sec="how"><svg class="i" aria-hidden="true"><use href="#i-steps"/></svg><span class="hi">काम कैसे होता है</span><span class="en">How it works</span></a>
       <a href="#work" data-sec="work"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span class="hi">हमारे बारे में</span><span class="en">About us</span></a>
       <a href="#faq" data-sec="faq"><svg class="i" aria-hidden="true"><use href="#i-help"/></svg><span class="hi">आपके सवाल</span><span class="en">FAQ</span></a>
@@ -1258,14 +1320,16 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट</span><span class="en">Website</span></h3>
         <p class="for"><span class="hi">कारीगर और छोटी दुकानों के लिए</span><span class="en">For trades and small shops</span></p>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span><span class="hi">ऐप</span><span class="en">App</span></span><span>Maps</span><span>WhatsApp</span></div>
         <div class="price" data-p="web">₹4,999</div>
         <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="web"></span></div>
         <div class="rec-extra js-rec-extra"></div>
         <ul>
-          <li><span class="hi">मोबाइल पर चलने वाली वेबसाइट</span><span class="en">Mobile-first website</span></li>
-          <li><span class="hi">कॉल और WhatsApp बटन</span><span class="en">Call and WhatsApp buttons</span></li>
-          <li><span class="hi">दुकान का पता और नक्शा</span><span class="en">Address and map</span></li>
-          <li><span class="hi">1 साल फ्री चलेगी</span><span class="en">First year of hosting free</span></li>
+          <li><span class="hi">मोबाइल वेबसाइट, 5 सेक्शन तक</span><span class="en">Mobile website, up to 5 sections</span></li>
+          <li><span class="hi">.in डोमेन + होस्टिंग, 1 साल फ्री</span><span class="en">.in domain + hosting, 1 year free</span></li>
+          <li><span class="hi">कॉल, WhatsApp और रास्ता बटन</span><span class="en">Call, WhatsApp, directions buttons</span></li>
+          <li><span class="hi">आपके रेट, फोटो और नक्शा</span><span class="en">Your prices, photos and map</span></li>
+          <li><span class="hi">15 दिन तक फ्री बदलाव</span><span class="en">15 days of free changes</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
       </div>
@@ -1273,15 +1337,16 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट + ऐप</span><span class="en">Website + App</span></h3>
         <p class="for"><span class="hi">रोज़ ऑर्डर वाली दुकानों के लिए</span><span class="en">For shops that take daily orders</span></p>
-        <div class="price" data-p="app">₹11,999</div>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span><span class="on">Maps</span><span class="on">WhatsApp</span></div>
+        <div class="price" data-p="app">₹9,999</div>
         <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="app"></span></div>
-        <div class="free-note"><span class="hi">₹2,498 का सामान फ्री</span><span class="en">₹2,498 of extras included free</span></div>
+        <div class="free-note"><span class="hi">₹3,497 का सामान फ्री</span><span class="en">₹3,497 of extras included free</span></div>
         <ul>
-          <li><span class="hi">वेबसाइट वाला सब कुछ</span><span class="en">Everything in Website</span></li>
-          <li><span class="hi">आपके नाम का मोबाइल ऐप</span><span class="en">Android app in your name</span></li>
-          <li><span class="hi">Google Maps पर दुकान <b>(₹1,499 फ्री)</b></span><span class="en">Google Maps listing <b>(₹1,499 free)</b></span></li>
-          <li><span class="hi">WhatsApp बिज़नेस सेटअप <b>(₹999 फ्री)</b></span><span class="en">WhatsApp Business setup <b>(₹999 free)</b></span></li>
-          <li><span class="hi">3 महीने फ्री मदद + रिपोर्ट</span><span class="en">3 months of help + reports</span></li>
+          <li><span class="hi">पूरी वेबसाइट + Android ऐप</span><span class="en">Full website + Android app</span></li>
+          <li><span class="hi">Google Maps <b>(₹1,499 फ्री)</b></span><span class="en">Google Maps <b>(₹1,499 free)</b></span></li>
+          <li><span class="hi">WhatsApp बिज़नेस <b>(₹999 फ्री)</b></span><span class="en">WhatsApp Business <b>(₹999 free)</b></span></li>
+          <li><span class="hi">दुकान का लोगो <b>(₹999 फ्री)</b></span><span class="en">Shop logo <b>(₹999 free)</b></span></li>
+          <li><span class="hi">3 महीने फ्री मदद + हर महीने रिपोर्ट</span><span class="en">3 months help + monthly report</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
       </div>
@@ -1289,13 +1354,17 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">सब कुछ</span><span class="en">Everything</span></h3>
         <p class="for"><span class="hi">क्लिनिक, सैलून और कोचिंग के लिए</span><span class="en">For clinics, salons and coaching</span></p>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span><span class="on">Maps</span><span class="on">WhatsApp</span></div>
         <div class="price" data-p="all">₹19,999</div>
-        <div class="once"><span class="hi">+ ₹999 महीना</span><span class="en">+ ₹999 a month</span></div>
+        <div class="once"><span class="hi">+ ₹999 महीना, जब चाहें बंद</span><span class="en">+ ₹999 a month, stop anytime</span></div>
+        <div class="free-note"><span class="hi">₹7,294 का सामान फ्री</span><span class="en">₹7,294 of extras included free</span></div>
         <ul>
-          <li><span class="hi">वेबसाइट + ऐप वाला सब कुछ</span><span class="en">Everything in Website + App</span></li>
-          <li><span class="hi">WhatsApp पर अपने आप बुकिंग/ऑर्डर</span><span class="en">Automatic bookings and orders on WhatsApp</span></li>
-          <li><span class="hi">हर महीने बदलाव और रिपोर्ट</span><span class="en">Monthly updates and report</span></li>
-          <li><span class="hi">जब चाहें बंद करें</span><span class="en">Stop any month</span></li>
+          <li><span class="hi">वेबसाइट, ऐप, Maps, WhatsApp, लोगो</span><span class="en">Website, app, Maps, WhatsApp, logo</span></li>
+          <li><span class="hi">WhatsApp पर ऑटो बुकिंग/ऑर्डर</span><span class="en">Auto bookings on WhatsApp</span></li>
+
+          <li><span class="hi">Insta + FB पेज <b>(₹1,999 फ्री)</b></span><span class="en">Insta + FB pages <b>(₹1,999 free)</b></span></li>
+          <li><span class="hi">UPI + रिव्यू QR स्टैंडी <b>(फ्री)</b></span><span class="en">UPI + review QR standee <b>(free)</b></span></li>
+          <li><span class="hi">हर महीने बदलाव, SEO, रिपोर्ट</span><span class="en">Monthly updates, SEO, report</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
       </div>
@@ -1303,31 +1372,82 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">बड़ा काम</span><span class="en">Custom</span></h3>
         <p class="for"><span class="hi">स्कूल और ऑफिस के लिए</span><span class="en">For schools and offices</span></p>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span><span class="on plus"><span class="hi">+ सॉफ्टवेयर</span><span class="en">+ Software</span></span></div>
         <div class="price"><small><span class="hi">से शुरू </span><span class="en">from </span></small>₹25,000</div>
         <div class="once"><span class="hi">काम के हिसाब से</span><span class="en">priced on the work</span></div>
         <ul>
-          <li><span class="hi">स्कूल का पोर्टल</span><span class="en">School portal</span></li>
-          <li><span class="hi">मेडिकल स्टोर बिलिंग</span><span class="en">Medical store billing</span></li>
-          <li><span class="hi">वकील / CA के लिए सिस्टम</span><span class="en">Systems for lawyers and CAs</span></li>
-          <li><span class="hi">आपकी ज़रूरत के हिसाब से</span><span class="en">Built around your needs</span></li>
+          <li><span class="hi">वेबसाइट + ऐप + सॉफ्टवेयर</span><span class="en">Website + app + software</span></li>
+          <li><span class="hi">स्कूल पोर्टल, बिलिंग, CA सिस्टम</span><span class="en">School portals, billing, CA systems</span></li>
+          <li><span class="hi">स्टाफ लॉगिन और एडमिन पैनल</span><span class="en">Staff logins and admin panel</span></li>
+          <li><span class="hi">आपकी टीम की ट्रेनिंग</span><span class="en">Training for your team</span></li>
+          <li><span class="hi">सबसे पहले सपोर्ट</span><span class="en">Priority support</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">दाम पूछें</span><span class="en">Ask for a price</span></a>
       </div>
     </div>
     <div class="extras reveal">
-      <h3><span class="hi">अलग से भी ले सकते हैं</span><span class="en">Also available on their own</span></h3>
-      <div class="extra-list">
-        <div><span><span class="hi">WhatsApp बिज़नेस सेटअप</span><span class="en">WhatsApp Business setup</span></span><b>₹999</b></div>
-        <div><span><span class="hi">Google Maps पर दुकान</span><span class="en">Shop on Google Maps</span></span><b>₹1,499</b></div>
-        <div><span><span class="hi">दुकान का लोगो</span><span class="en">Shop logo</span></span><b>₹999</b></div>
-        <div><span><span class="hi">दूसरे साल से वेबसाइट चालू रखना</span><span class="en">Website hosting from year 2</span></span><b><span class="hi">₹2,499/साल</span><span class="en">₹2,499/year</span></b></div>
-      </div>
+      <span><span class="hi">दूसरे साल से रिन्यूअल: <b>₹2,499/साल</b> (डोमेन, होस्टिंग, SSL)</span><span class="en">Renewal from year 2: <b>₹2,499/year</b> (domain, hosting, SSL)</span></span>
+      <a class="link" href="#addons"><span class="hi">20 ऐड-ऑन सर्विस देखें: ऐड, सोशल मीडिया, फोटोशूट और भी</span><span class="en">See 20 add-on services: ads, social media, photoshoot and more</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
 
+<!-- ============ ADD-ON SERVICES ============ -->
+<section id="addons">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow"><span class="en">Add-on services</span><span class="hi">ऐड-ऑन सर्विस</span></span>
+      <h2><span class="en">More customers. Less effort.</span><span class="hi">ज़्यादा ग्राहक, कम मेहनत।</span></h2>
+      <p class="lede"><span class="en">Add any of these to your plan, or take them on their own. Tap one to ask on WhatsApp.</span><span class="hi">इनमें से कुछ भी अपने प्लान में जोड़िए या अलग से लीजिए। किसी पर भी टैप करके WhatsApp पर पूछिए।</span></p>
+    </div>
+    <div class="addons">
+      <div class="ad-group reveal">
+        <div class="ad-head"><span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span><h3><span class="en">Get found</span><span class="hi">ग्राहक आपको ढूंढें</span></h3></div>
+        <ul>
+          <li><a class="js-addon" href="#" data-en="Google Maps listing" data-hi="Google Maps पर दुकान"><span class="ad-top"><b><span class="en">Google Maps listing</span><span class="hi">Google Maps पर दुकान</span></b><em>₹1,499</em></span><small><span class="en">Set up, verified, with photos</span><span class="hi">सेटअप, वेरिफ़िकेशन और फोटो</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Local SEO" data-hi="लोकल SEO"><span class="ad-top"><b><span class="en">Local SEO</span><span class="hi">लोकल SEO</span></b><em><span class="en">₹1,999/mo</span><span class="hi">₹1,999/माह</span></em></span><small><span class="en">Show higher in “near me” searches</span><span class="hi">“पास में” वाली खोज में ऊपर दिखें</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Google review booster" data-hi="रिव्यू बूस्टर"><span class="ad-top"><b><span class="en">Review booster</span><span class="hi">रिव्यू बूस्टर</span></b><em>₹799</em></span><small><span class="en">QR standee + review link</span><span class="hi">QR स्टैंडी + रिव्यू लिंक</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="JustDial and IndiaMART listing" data-hi="JustDial और IndiaMART लिस्टिंग"><span class="ad-top"><b>JustDial & IndiaMART</b><em>₹999</em></span><small><span class="en">Listings set up properly</span><span class="hi">लिस्टिंग सही तरीके से सेटअप</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Swiggy and Zomato listing" data-hi="Swiggy और Zomato लिस्टिंग"><span class="ad-top"><b>Swiggy & Zomato</b><em>₹1,999</em></span><small><span class="en">Get your restaurant listed</span><span class="hi">रेस्टोरेंट लिस्ट करवाने में मदद</span></small></a></li>
+        </ul>
+      </div>
+      <div class="ad-group reveal">
+        <div class="ad-head"><span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-calc"/></svg></span><h3><span class="en">Get more customers</span><span class="hi">ज़्यादा ग्राहक लाएँ</span></h3></div>
+        <ul>
+          <li><a class="js-addon" href="#" data-en="Google Ads" data-hi="Google ऐड"><span class="ad-top"><b><span class="en">Google Ads</span><span class="hi">Google ऐड</span></b><em><span class="en">₹2,999/mo*</span><span class="hi">₹2,999/माह*</span></em></span><small><span class="en">Ads to people searching nearby</span><span class="hi">पास में खोजने वालों को आपका ऐड</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Instagram and Facebook ads" data-hi="Instagram और Facebook ऐड"><span class="ad-top"><b><span class="en">Social media ads</span><span class="hi">सोशल मीडिया ऐड</span></b><em><span class="en">₹2,999/mo*</span><span class="hi">₹2,999/माह*</span></em></span><small><span class="en">Instagram and Facebook, in your area</span><span class="hi">Instagram और Facebook, आपके इलाके में</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Social media management" data-hi="सोशल मीडिया मैनेजमेंट"><span class="ad-top"><b><span class="en">Social media posts</span><span class="hi">सोशल मीडिया पोस्ट</span></b><em><span class="en">₹4,999/mo</span><span class="hi">₹4,999/माह</span></em></span><small><span class="en">12 posts + 4 reels every month</span><span class="hi">हर महीने 12 पोस्ट + 4 रील</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="WhatsApp offer messages" data-hi="WhatsApp ऑफर मैसेज"><span class="ad-top"><b><span class="en">WhatsApp offers</span><span class="hi">WhatsApp ऑफर</span></b><em><span class="en">₹1,499/mo</span><span class="hi">₹1,499/माह</span></em></span><small><span class="en">Festival offers to your customers</span><span class="hi">त्योहार के ऑफर आपके ग्राहकों तक</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Instagram and Facebook page setup" data-hi="Instagram और Facebook पेज सेटअप"><span class="ad-top"><b><span class="en">Social media pages</span><span class="hi">सोशल मीडिया पेज</span></b><em>₹1,999</em></span><small><span class="en">Instagram + Facebook, bio and highlights</span><span class="hi">Instagram + Facebook, बायो और हाइलाइट्स</span></small></a></li>
+        </ul>
+      </div>
+      <div class="ad-group reveal">
+        <div class="ad-head"><span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span><h3><span class="en">Look professional</span><span class="hi">प्रोफेशनल पहचान</span></h3></div>
+        <ul>
+          <li><a class="js-addon" href="#" data-en="Logo design" data-hi="लोगो डिज़ाइन"><span class="ad-top"><b><span class="en">Logo design</span><span class="hi">लोगो डिज़ाइन</span></b><em>₹999</em></span><small><span class="en">3 designs, changes till you love it</span><span class="hi">3 डिज़ाइन, पसंद आने तक बदलाव</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Shop photoshoot" data-hi="दुकान का फोटोशूट"><span class="ad-top"><b><span class="en">Shop photoshoot</span><span class="hi">दुकान का फोटोशूट</span></b><em>₹2,499</em></span><small><span class="en">20 edited photos (Delhi NCR)</span><span class="hi">20 एडिट की हुई फोटो (दिल्ली NCR)</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Promo reel" data-hi="प्रोमो रील"><span class="ad-top"><b><span class="en">Promo reel</span><span class="hi">प्रोमो रील</span></b><em>₹1,499</em></span><small><span class="en">30-second edited video</span><span class="hi">30 सेकंड का एडिट किया वीडियो</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Print kit (visiting card, pamphlet, QR standee)" data-hi="प्रिंट किट (विज़िटिंग कार्ड, पर्चा, QR स्टैंडी)"><span class="ad-top"><b><span class="en">Print kit</span><span class="hi">प्रिंट किट</span></b><em>₹1,499</em></span><small><span class="en">Visiting card, pamphlet, QR standee</span><span class="hi">विज़िटिंग कार्ड, पर्चा, QR स्टैंडी</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Business email" data-hi="बिज़नेस ईमेल"><span class="ad-top"><b><span class="en">Business email</span><span class="hi">बिज़नेस ईमेल</span></b><em><span class="en">₹999/yr</span><span class="hi">₹999/साल</span></em></span><small>you@yourshop.in</small></a></li>
+        </ul>
+      </div>
+      <div class="ad-group reveal">
+        <div class="ad-head"><span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-store"/></svg></span><h3><span class="en">Run the shop</span><span class="hi">दुकान चलाना आसान</span></h3></div>
+        <ul>
+          <li><a class="js-addon" href="#" data-en="WhatsApp Business setup" data-hi="WhatsApp बिज़नेस सेटअप"><span class="ad-top"><b><span class="en">WhatsApp Business</span><span class="hi">WhatsApp बिज़नेस</span></b><em>₹999</em></span><small><span class="en">Catalogue and auto replies</span><span class="hi">कैटलॉग और अपने आप जवाब</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="UPI and online payments" data-hi="UPI और ऑनलाइन पेमेंट"><span class="ad-top"><b><span class="en">UPI payments</span><span class="hi">UPI पेमेंट</span></b><em>₹999</em></span><small><span class="en">QR code and payment links</span><span class="hi">QR कोड और पेमेंट लिंक</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Product catalogue" data-hi="प्रोडक्ट कैटलॉग"><span class="ad-top"><b><span class="en">Product catalogue</span><span class="hi">प्रोडक्ट कैटलॉग</span></b><em>₹1,999</em></span><small><span class="en">Up to 100 items with photos</span><span class="hi">फोटो के साथ 100 सामान तक</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Billing and stock software" data-hi="बिलिंग और स्टॉक सॉफ्टवेयर"><span class="ad-top"><b><span class="en">Billing software</span><span class="hi">बिलिंग सॉफ्टवेयर</span></b><em>₹4,999</em></span><small><span class="en">Bills, stock and daily sales report</span><span class="hi">बिल, स्टॉक और रोज़ की बिक्री</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Loyalty card" data-hi="लॉयल्टी कार्ड"><span class="ad-top"><b><span class="en">Loyalty card</span><span class="hi">लॉयल्टी कार्ड</span></b><em>₹2,999</em></span><small><span class="en">Digital points for regulars</span><span class="hi">पक्के ग्राहकों के लिए डिजिटल पॉइंट</span></small></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ad-note"><span class="en">* Ad spend is paid by you directly to Google or Meta. Our fee is only for setting up and running the ads.</span><span class="hi">* ऐड का खर्चा आप सीधे Google या Meta को देते हैं। हमारी फीस सिर्फ ऐड सेट करने और चलाने की है।</span></p>
+  </div>
+</section>
+
 <!-- ============ STEPS ============ -->
-<section id="how">
+<section class="sand" id="how">
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow"><span class="en">How it works</span><span class="hi">काम कैसे होता है</span></span>
@@ -1343,7 +1463,7 @@
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section class="sand" id="work">
+<section id="work">
   <div class="wrap about-grid">
     <div class="reveal">
       <span class="eyebrow"><span class="en">About Grahko</span><span class="hi">Grahko के बारे में</span></span>
@@ -1366,7 +1486,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq">
+<section class="sand" id="faq">
   <div class="wrap faq-wrap">
     <div class="head reveal">
       <span class="eyebrow"><span class="en">FAQ</span><span class="hi">सवाल-जवाब</span></span>
@@ -1452,9 +1572,9 @@
   // Prices. PRICE = what you charge now. OFFER.regular = the price after the offer ends.
   // After OFFER.until the site switches to the regular price by itself.
   // Only show a cut price you will really charge afterwards; an offer that never ends is a fake discount.
-  const PRICE = { web: 4999, app: 11999, all: 19999, big: 25000 };
+  const PRICE = { web: 4999, app: 9999, all: 19999, big: 25000 };
   const OFFER = { until: "2026-11-01", name: { hi: "दिवाली ऑफर", en: "Diwali offer" },
-                  regular: { web: 9999, app: 15999, all: 24999 } };   // big: no offer
+                  regular: { web: 9999, app: 16999, all: 29999 } };   // save ₹5,000 / ₹7,000 / ₹10,000; big: no offer
   const GOOGLE_ADDON = 1499;
   // Customer reviews. Add only REAL reviews, with the customer's permission.
   // The section stays hidden while this list is empty. "link" can point to their Google review or shop page.
@@ -1627,8 +1747,8 @@
     });
     $$(".js-from").forEach(el => el.textContent = rupee(priceNow("web")));
     $(".js-rec-extra").innerHTML = hi
-      ? `आपके काम के लिए सुझाव: + Google पर दुकान ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`
-      : `Suggested for you: + Google listing ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`;
+      ? `+ Google Maps ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`
+      : `+ Google Maps ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`;
   }
 
   // More detail for each business's preview: rating, trust badges, an offer, a review,
@@ -1895,9 +2015,11 @@
     $(".js-perday").textContent = lang === "hi"
       ? (perDay <= 20 ? `रोज़ सिर्फ ₹${perDay}, एक चाय से भी कम` : `पूरे साल का हिसाब: रोज़ सिर्फ ₹${perDay}`)
       : (perDay <= 20 ? `Just ₹${perDay} a day, less than a cup of tea` : `Over a year, just ₹${perDay} a day`);
-    const freeTxt = (t.plan === "app" || t.plan === "all")
-      ? (lang === "hi" ? "Google पर दुकान + WhatsApp सेटअप (₹2,498) फ्री" : "Google Maps listing + WhatsApp setup (₹2,498) included free")
-      : "";
+    const FREE = {
+      app: {hi:"Google Maps, WhatsApp सेटअप और लोगो (₹3,497) फ्री", en:"Google Maps, WhatsApp setup and logo (₹3,497) included free"},
+      all: {hi:"₹7,294 का सामान फ्री: Google Maps, WhatsApp, लोगो, UPI, सोशल पेज, रिव्यू QR", en:"₹7,294 of extras free: Google Maps, WhatsApp, logo, UPI, social pages, review QR"}
+    };
+    const freeTxt = FREE[t.plan] ? FREE[t.plan][lang] : "";
     $(".js-free").textContent = freeTxt; $(".js-free").style.display = freeTxt ? "" : "none";
     const half = Math.round(now / 2);
     $(".js-start").innerHTML = lang === "hi"
@@ -1966,6 +2088,11 @@
       const c = a.closest(".plan"), pn = PLAN_CARD_NAME[c.dataset.plan][lang];
       a.href = waLink(lang === "hi" ? `नमस्ते! मुझे "${pn}" प्लान चाहिए।` + (nameEl.value.trim() ? ` दुकान: ${name}` : "")
                                      : `Hi! I want the "${pn}" plan.` + (nameEl.value.trim() ? ` Shop: ${name}` : ""));
+      a.target = "_blank"; a.rel = "noopener";
+    });
+    $$(".js-addon").forEach(a => {
+      a.href = waLink(lang === "hi" ? `नमस्ते! मुझे "${a.dataset.hi}" चाहिए।` + (nameEl.value.trim() ? ` दुकान: ${name}` : "")
+                                     : `Hi! I'd like "${a.dataset.en}".` + (nameEl.value.trim() ? ` Shop: ${name}` : ""));
       a.target = "_blank"; a.rel = "noopener";
     });
 
@@ -2213,7 +2340,7 @@
 
   // Highlight where the visitor is, in the bar and in the menu
   if ("IntersectionObserver" in window) {
-    const secs = ["top","studio","services","calc","why","pricing","how","work","faq","contact"].map(id => document.getElementById(id)).filter(Boolean);
+    const secs = ["top","studio","services","calc","why","pricing","addons","how","work","faq","contact"].map(id => document.getElementById(id)).filter(Boolean);
     const spy = new IntersectionObserver(entries => {
       entries.forEach(en => {
         if (!en.isIntersecting) return;
