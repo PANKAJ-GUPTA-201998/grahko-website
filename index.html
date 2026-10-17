@@ -217,9 +217,9 @@
   .i-fill{fill:currentColor;stroke:none}
 
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-  section{padding:128px 0;scroll-margin-top:64px}
+  section{padding:clamp(72px,11vh,120px) 0;scroll-margin-top:64px}
   .sand{background:var(--sand)}
-  .head{max-width:760px;margin-bottom:56px}
+  .head{max-width:760px;margin-bottom:clamp(32px,5vh,52px)}
   .head.center{margin-left:auto;margin-right:auto;text-align:center}
   .eyebrow{display:inline-block;font-size:15px;font-weight:600;color:var(--gold-ink);margin-bottom:14px;letter-spacing:0}
   h2{font-size:clamp(34px,4.8vw,58px)}
@@ -246,12 +246,29 @@
   .logo svg{width:28px;height:28px;flex:none}
 
   /* Festival bar */
-  .fest{display:none;background:var(--ink);color:#D5D9E2;text-align:center;padding:9px 16px;font-size:14px;line-height:1.45}
-  .fest.on{display:block}
-  .fest b{color:var(--gold);font-weight:600}
-  .fest a{color:#fff;font-weight:600;text-decoration:none;white-space:nowrap}
-  .fest a:hover{text-decoration:underline}
-  @media(max-width:700px){.fest-mid{display:none}}
+  /* Festival offer: a live pill in the nav; tap for details */
+  .offer-wrap{display:none;position:relative}
+  .offer-wrap.on{display:block}
+  .offer-pill{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px 0 12px;border-radius:999px;border:1px solid #F1CF6E;background:linear-gradient(180deg,#FFF9E0,#FFEDB0);color:#7A4300;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .offer-pill::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.85) 50%,transparent 70%);transform:translateX(-130%);animation:shine 3.4s ease-in-out infinite;pointer-events:none}
+  .offer-pill .i{width:17px;height:17px;transform-origin:50% 60%;animation:wiggle 3.4s ease-in-out infinite}
+  .live{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#E5484D}
+  .live::after{content:"";position:absolute;inset:0;border-radius:50%;background:#E5484D;animation:ping 1.5s cubic-bezier(0,0,.2,1) infinite}
+  @keyframes ping{75%,100%{transform:scale(2.8);opacity:0}}
+  @keyframes shine{0%,50%{transform:translateX(-130%)}80%,100%{transform:translateX(130%)}}
+  @keyframes wiggle{0%,78%,100%{transform:rotate(0)}82%{transform:rotate(-14deg)}86%{transform:rotate(12deg)}90%{transform:rotate(-8deg)}94%{transform:rotate(4deg)}}
+  .offer-pop{position:absolute;top:calc(100% + 12px);right:0;width:310px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow-lg);z-index:60;text-align:left}
+  .offer-pop .op-eyebrow{display:block;font-size:13px;font-weight:600;color:var(--gold-ink)}
+  .offer-pop .op-big{display:block;font-size:28px;font-weight:700;letter-spacing:-.035em;line-height:1.15;margin:4px 0 8px}
+  .offer-pop p{font-size:14.5px;color:var(--muted);line-height:1.5}
+  .op-count{display:inline-flex;align-items:center;gap:7px;margin:14px 0 16px;background:#FDECEC;color:#B42318;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+  .offer-pop .btn{width:100%}
+  @media(max-width:600px){
+    .offer-pill{padding:0 11px;gap:6px}
+    .op-txt{display:none}
+    .offer-pop{position:fixed;top:72px;left:16px;right:16px;width:auto}
+  }
+  @media (prefers-reduced-motion:reduce){.offer-pill::after,.offer-pill .i,.live::after{animation:none}}
 
   /* Nav */
   nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(14,21,37,.07)}
@@ -265,8 +282,9 @@
   .lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(14,21,37,.14)}
   .menu-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;cursor:pointer}
   .menu-btn:hover{background:var(--sand-2)}
-  @media(min-width:1040px){.nav-links{display:flex}.menu-btn{display:none}}
+  @media(min-width:1200px){.nav-links{display:flex}.menu-btn{display:none}}
   @media(max-width:560px){.nav-wa{display:none}}
+  @media(max-width:400px){.lang button{padding:5px 9px}.nav-right{gap:6px}}
 
   .menu{position:fixed;inset:0;z-index:80;background:rgba(14,21,37,.35);opacity:0;transition:opacity .25s}
   .menu.open{opacity:1}
@@ -283,7 +301,7 @@
   body.menu-open{overflow:hidden}
 
   /* ================= Hero ================= */
-  .hero{padding:104px 0 56px;text-align:center;scroll-margin-top:64px;background:radial-gradient(60% 55% at 50% 0%,rgba(245,184,0,.13),rgba(245,184,0,0) 70%)}
+  .hero{min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;padding:48px 0;text-align:center;scroll-margin-top:64px;background:radial-gradient(60% 55% at 50% 0%,rgba(245,184,0,.13),rgba(245,184,0,0) 70%)}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--sand);border:1px solid var(--line);color:var(--ink-2);font-size:14px;font-weight:500;border-radius:999px;padding:6px 14px 6px 6px;margin-bottom:28px}
   .hero .eyebrow b{background:var(--ink);color:var(--gold);font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px}
   .hero h1{font-size:clamp(46px,8.4vw,104px);letter-spacing:-.05em;line-height:.98;font-weight:700}
@@ -292,16 +310,16 @@
   .hero .lede{max-width:44ch;margin:26px auto 0;font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
   .hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:38px}
   .hero-cta .btn{min-height:56px;padding:0 30px;font-size:17px}
-  .does{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 34px;margin-top:64px;color:var(--ink-2);font-size:16px;font-weight:500}
+  .does{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 34px;margin-top:clamp(36px,7vh,64px);color:var(--ink-2);font-size:16px;font-weight:500}
   .does span{display:inline-flex;align-items:center;gap:9px}
   .does .i{width:22px;height:22px;color:var(--gold-ink)}
 
   /* ================= Studio: live preview builder ================= */
-  .studio{padding:40px 0 128px}
-  .studio-head{text-align:center;margin-bottom:40px}
-  .studio-head h2{font-size:clamp(28px,3.4vw,40px)}
-  .studio-head p{color:var(--muted);margin-top:10px;font-size:18px}
-  .stage{background:var(--sand);border-radius:36px;padding:36px}
+  .studio{padding:clamp(16px,3vh,32px) 0 clamp(72px,11vh,120px)}
+  .studio-head{margin-bottom:20px}
+  .studio-head h2{font-size:clamp(26px,2.6vw,34px)}
+  .studio-head p{color:var(--muted);margin-top:6px;font-size:16px}
+  .stage{background:var(--sand);border-radius:36px;padding:clamp(20px,3vh,32px)}
   .stage-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"build prev" "buy prev";gap:24px 48px;align-items:start}
   .stage-grid > *{min-width:0}
   .builder-col{grid-area:build}
@@ -330,6 +348,7 @@
   .type{border:1px solid var(--line);background:#fff;border-radius:var(--r-sm);padding:12px 4px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13.5px;font-weight:500;line-height:1.2;text-align:center;transition:border-color .2s,background .2s}
   .type:hover{border-color:var(--line-2);background:var(--sand)}
   .type .em{font-size:22px;line-height:1.1}
+  .type .short{display:none}
   .type[aria-pressed="true"]{border-color:var(--ink);background:var(--gold-soft);box-shadow:inset 0 0 0 1px var(--ink)}
   .photo-row{display:flex;gap:12px;align-items:center}
   .photo-btn{display:inline-flex;align-items:center;gap:8px;border:1px dashed var(--line-2);border-radius:var(--r-sm);padding:11px 16px;font-size:15px;font-weight:500;background:#fff;cursor:pointer}
@@ -506,7 +525,7 @@
   @media (prefers-reduced-motion:reduce){.scr.active,.scr[data-scr="wa"].active [style*="--d"]{animation:none}}
 
   /* Plan summary under the phone (desktop) */
-  .plan-strip{margin-top:18px;background:#fff;border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
+  .plan-strip{display:none !important;margin-top:18px;background:#fff;border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
   .ps-top{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
   .ps-off{color:var(--gold-ink);font-weight:600}
   .ps-off:empty{display:none}
@@ -536,6 +555,9 @@
   .g-add small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
   .buy-btns{display:grid;gap:10px}
   .buy-btns .btn{width:100%}
+  .share-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:6px;font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none}
+  .share-link .i{width:17px;height:17px}
+  .share-link:hover{color:var(--ink);text-decoration:underline}
   .buy-foot{margin-top:16px;display:grid;gap:4px;text-align:center;font-size:13.5px;color:var(--muted)}
   .buy-foot b{color:var(--ink)}
 
@@ -546,8 +568,64 @@
     .see-btn{display:flex}
     .buy-col{max-width:520px;width:100%;margin:0 auto}
   }
-  @media(min-width:961px) and (max-height:820px){.phone{height:500px}}
-  @media(min-width:961px) and (max-height:700px){.preview{position:static}}
+  /* Wide screens: form, phone and plan side by side, sized to fit one screen */
+  @media(min-width:1100px){
+    .studio{min-height:calc(100svh - 64px);display:flex;align-items:center;padding:12px 0}
+    .studio > .wrap{width:100%}
+    .stage-grid{grid-template-columns:minmax(0,1fr) 300px 320px;grid-template-areas:"build prev buy";gap:24px;align-items:center}
+    .preview{position:static}
+    .phone{height:clamp(400px,calc(100svh - 250px),560px)}
+    .type .full{display:none}
+    .type .short{display:inline}
+    .tab{padding:6px 9px;font-size:12.5px}
+    .tabs{flex-wrap:nowrap}
+    .buy .breakdown{display:none}
+    .buy-foot span + span{display:none}
+    .builder{padding:22px 24px}
+    .field + .field{margin-top:16px}
+    .field > label,.field > .label{margin-bottom:8px;font-size:15px}
+    .inp{padding:11px 14px;font-size:16px}
+    .types{gap:6px}
+    .type{padding:9px 3px 8px;font-size:13px;gap:3px}
+    .type .em{font-size:19px}
+    .mic-hint{margin-top:2px}
+    .buy{padding:22px}
+    .buy .rec-plan strong{font-size:30px}
+    .buy-list{margin:14px 0;padding:14px 0;gap:9px}
+    .buy-list > *{font-size:14px}
+    .g-add{margin-top:12px;padding:10px 12px;font-size:14px}
+    .buy-btns .btn{min-height:46px;font-size:15.5px}
+    .buy-foot{margin-top:12px;font-size:12.5px}
+    .pv-top{margin-bottom:10px}
+    .tabs{margin-top:12px}
+    .pv-note{margin-top:6px}
+  }
+  @media(min-width:1100px) and (max-height:780px){
+    .studio-head p{display:none}
+    .studio-head{margin-bottom:14px}
+    .builder{padding:18px 20px}
+    .buy{padding:18px 20px}
+    .buy .rec-plan strong{font-size:28px}
+    .buy .offer{font-size:13px}
+    .g-add{margin-top:10px;padding:9px 12px;font-size:13.5px}
+    .g-add small{display:none}
+    .buy-list{margin:12px 0;padding:12px 0;gap:7px}
+    .buy-list > *{font-size:13.5px}
+    .buy-foot{margin-top:8px}
+  }
+  /* Short laptop screens: the hero tightens so it still fits */
+  @media(min-width:700px) and (max-height:780px){
+    .hero{padding:24px 0}
+    .hero .eyebrow{margin-bottom:18px}
+    .hero h1{font-size:clamp(42px,min(8.4vw,14vh),104px)}
+    .hero .lede{margin-top:18px}
+    .hero-cta{margin-top:26px}
+    .does{margin-top:30px}
+  }
+  /* Area and photo share a row when there is room */
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row2 .field + .field{margin-top:0}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}.row2 .field + .field{margin-top:26px}}
 
   /* ================= Proof band ================= */
   .proof{padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -619,7 +697,8 @@
   .price s{display:block;font-size:15px;color:var(--faint);font-weight:500;letter-spacing:0;margin-bottom:6px}
   .offer-tag{display:block;margin-top:10px;color:var(--gold-ink);font-size:12.5px;font-weight:600;letter-spacing:0}
   .once{font-size:14px;color:var(--muted);margin-top:8px}
-  .plan .perday{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .plan .perday{font-size:inherit;color:var(--muted)}
+  .plan .perday:not(:empty)::before{content:" · "}
   .plan .free-note{font-size:13.5px;font-weight:600;color:#137a3d;margin-top:10px}
   .plan .rec-extra{display:none;font-size:13.5px;background:var(--sand);border-radius:12px;padding:8px 12px;margin-top:12px}
   .plan.is-rec .rec-extra{display:block}
@@ -761,6 +840,58 @@
     details p{padding-right:0;font-size:15.5px}
   }
   @media(max-width:400px){.phone{width:256px;height:530px}.logo{font-size:19px}}
+  /* Desktop: every section is one screen, content centred, nothing cut off */
+  @media(min-width:1100px){
+    #services,#calc,#why,#pricing,#how,#work,#faq,#contact{min-height:calc(100svh - 64px);display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vh,72px) 0}
+    #calc .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"head out" "fomo out" "in out";column-gap:56px;align-items:start}
+    #calc .head{grid-area:head;margin-bottom:18px}
+    #calc .fomo{grid-area:fomo;margin:0 0 22px}
+    #calc .calc{display:contents}
+    #calc .calc-in{grid-area:in;padding:26px 30px}
+    #calc .slider + .slider{margin-top:22px}
+    #calc .calc-out{grid-area:out;align-self:stretch;justify-content:center;padding:40px}
+    #calc .calc-out .btn{margin-top:4px}
+    #pricing .head{margin-bottom:20px}
+    #pricing .eyebrow{display:none}
+    h2{font-size:clamp(34px,min(4.8vw,7.2vh),58px)}
+    .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px}
+    .price s{order:2;display:inline;margin:0;font-size:15px}
+    .price .offer-tag{order:3;flex-basis:100%;margin-top:6px}
+    #pricing .lede{margin-top:10px}
+    .anchor{margin-top:8px}
+    .plans{padding-top:12px}
+    .plan{padding:24px 20px}
+    .plan .for{min-height:0;font-size:13.5px}
+    .price{font-size:36px;margin-top:14px}
+    .plan .once{margin-top:6px}
+    .plan .free-note,.plan .rec-extra{margin-top:8px}
+    .plan ul{margin:12px 0 16px;padding-top:12px;gap:5px;font-size:13.5px}
+    .plan{padding:22px 20px}
+    .plan .btn{min-height:44px}
+    .extras{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;padding:14px 22px;margin-top:12px}
+    .extras h3{margin:0;font-size:14.5px;letter-spacing:-.01em}
+    .extra-list{display:flex;flex-wrap:wrap;gap:6px 20px}
+    .extra-list div{border:0;padding:0;font-size:14px;gap:8px}
+    #pricing{padding:24px 0}
+    .services .svc{padding:26px 24px}
+    .svc-ic{margin-bottom:18px}
+  }
+  /* Short laptop screens (e.g. 1366 x 768): trim secondary lines so each section still fits */
+  @media(min-width:1100px) and (max-height:720px){
+    #services,#calc,#why,#how,#work,#faq,#contact{padding:24px 0}
+    #pricing{padding:18px 0}
+    #calc .lede,#pricing .lede,.plan .for{display:none}
+    #calc .head,#pricing .head{margin-bottom:12px}
+    .fomo{font-size:15.5px}
+    #calc .calc-in{padding:20px 26px}
+    #calc .slider + .slider{margin-top:14px}
+    .slider output{font-size:30px}
+    #calc .calc-out{padding:30px}
+    .price{font-size:32px;margin-top:10px}
+    .plan ul{gap:3px;font-size:13px;margin:10px 0 12px;padding-top:10px}
+    .plan .btn{min-height:40px}
+    summary{padding:16px 0}
+  }
 </style>
 </head>
 <body>
@@ -794,13 +925,10 @@
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
   <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16v-4M12 16V8M17 16v-7"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
   <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
 </svg>
 
-<div class="fest" id="fest">
-  <span class="hi"><span class="js-fest-name"></span> से पहले दुकान ऑनलाइन।<span class="fest-mid"> त्योहार में लोग Google पर ही दुकानें ढूंढते हैं।</span> <b class="js-fest-count"></b> · <a href="#studio">अभी देखिए →</a></span>
-  <span class="en">Get online before <span class="js-fest-name"></span>.<span class="fest-mid"> Festival shoppers search Google first.</span> <b class="js-fest-count"></b> · <a href="#studio">Try it free →</a></span>
-</div>
 
 <!-- ============ NAV ============ -->
 <nav id="nav">
@@ -814,6 +942,16 @@
       <a href="#faq" data-sec="faq"><span class="hi">सवाल</span><span class="en">FAQ</span></a>
     </div>
     <div class="nav-right">
+      <div class="offer-wrap" id="fest">
+        <button type="button" class="offer-pill" id="offerBtn" aria-expanded="false" aria-controls="offerPop"><span class="live" aria-hidden="true"></span><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg><span class="op-txt"><span class="en"><span class="js-fest-name"></span> offer</span><span class="hi"><span class="js-fest-name"></span> ऑफर</span></span></button>
+        <div class="offer-pop" id="offerPop" hidden>
+          <span class="op-eyebrow"><span class="en"><span class="js-fest-name"></span> offer</span><span class="hi"><span class="js-fest-name"></span> ऑफर</span></span>
+          <b class="op-big"><span class="en">Save up to <span class="js-fest-save"></span></span><span class="hi"><span class="js-fest-save"></span> तक की बचत</span></b>
+          <p><span class="en">On every plan. Festival shoppers search Google first, so get online before the rush.</span><span class="hi">हर प्लान पर। त्योहार में लोग पहले Google पर ही ढूंढते हैं, इसलिए भीड़ से पहले ऑनलाइन आइए।</span></p>
+          <span class="op-count"><span class="live" aria-hidden="true"></span><span class="en"><span class="js-fest-count"></span></span><span class="hi"><span class="js-fest-count"></span></span></span>
+          <a class="btn btn-dark btn-sm" href="#pricing"><span class="en">See offer prices</span><span class="hi">ऑफर वाले दाम देखें</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-set-lang="en" aria-pressed="true">English</button>
         <button type="button" data-set-lang="hi" aria-pressed="false">हिंदी</button>
@@ -877,13 +1015,13 @@
 <!-- ============ STUDIO: SEE YOUR SHOP LIVE ============ -->
 <section class="studio" id="studio">
   <div class="wrap">
+    <div class="stage">
+    <div class="stage-grid">
+    <div class="builder-col">
     <div class="studio-head">
       <h2><span class="en">See it with your own shop.</span><span class="hi">अपनी दुकान के साथ देखिए।</span></h2>
       <p><span class="en">Type your shop's name. Watch it go online in seconds. Free.</span><span class="hi">दुकान का नाम लिखिए। सेकंडों में देखिए वो ऑनलाइन कैसी दिखेगी। बिल्कुल फ्री।</span></p>
     </div>
-    <div class="stage">
-    <div class="stage-grid">
-    <div class="builder-col">
       <div class="builder">
         <div class="field">
           <label for="shopName"><span class="num">1</span><span class="hi">दुकान का नाम</span><span class="en">Shop name</span></label>
@@ -900,12 +1038,13 @@
           <div class="types" id="types" role="group" aria-label="Business type"></div>
         </div>
 
+        <div class="field row2">
         <div class="field">
-          <label for="shopArea"><span class="num">3</span><span class="hi">दुकान कहाँ है?</span><span class="en">Where is it?</span> <span class="opt"><span class="hi">ज़रूरी नहीं</span><span class="en">Optional</span></span></label>
+          <label for="shopArea"><span class="num">3</span><span class="hi">कहाँ है?</span><span class="en">Where?</span> <span class="opt"><span class="hi">ज़रूरी नहीं</span><span class="en">Optional</span></span></label>
           <input id="shopArea" class="inp" type="text" maxlength="28" autocomplete="off" placeholder="e.g. Indirapuram">
         </div>
         <div class="field">
-          <div class="label"><span class="num">4</span><span class="hi">दुकान की फोटो</span><span class="en">Shop photo</span> <span class="opt"><span class="hi">ज़रूरी नहीं</span><span class="en">Optional</span></span></div>
+          <div class="label"><span class="num">4</span><span class="hi">फोटो</span><span class="en">Photo</span> <span class="opt"><span class="hi">ज़रूरी नहीं</span><span class="en">Optional</span></span></div>
           <div class="photo-row">
             <label class="photo-btn" for="shopPhoto"><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg><span class="hi">फोटो लगाइए</span><span class="en">Add a photo</span></label>
             <input id="shopPhoto" class="visually-hidden" type="file" accept="image/*">
@@ -913,6 +1052,7 @@
             <button type="button" class="photo-clear" id="photoClear"><span class="hi">हटाएँ</span><span class="en">Remove</span></button>
           </div>
           <div class="photo-note" id="photoNote"><span class="hi">यह फोटो सिर्फ आपके फोन में दिख रही है, कहीं सेव या अपलोड नहीं होती।</span><span class="en">This photo stays on your phone. It is never saved or uploaded.</span></div>
+        </div>
         </div>
         <a class="btn btn-dark see-btn" href="#preview"><span class="hi">अपनी दुकान देखिए</span><span class="en">See your shop</span><svg class="i" aria-hidden="true"><use href="#i-down"/></svg></a>
       </div>
@@ -969,7 +1109,7 @@
         </div>
         <div class="buy-btns">
           <a class="btn btn-wa" id="buyBtn" href="#" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="hi">यह वेबसाइट मुझे चाहिए</span><span class="en">I want this website</span></a>
-          <a class="btn btn-line" id="shareBtn" href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg><span class="hi">परिवार को दिखाएँ</span><span class="en">Show my family</span></a>
+          <a class="share-link" id="shareBtn" href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg><span class="hi">परिवार को WhatsApp पर दिखाएँ</span><span class="en">Show my family on WhatsApp</span></a>
         </div>
         <div class="buy-foot">
           <span class="js-start"></span>
@@ -1117,10 +1257,9 @@
       <div class="plan" data-plan="web">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट</span><span class="en">Website</span></h3>
-        <p class="for"><span class="hi">कारीगर, सर्विस और छोटी दुकानों के लिए</span><span class="en">For trades, services and small shops</span></p>
+        <p class="for"><span class="hi">कारीगर और छोटी दुकानों के लिए</span><span class="en">For trades and small shops</span></p>
         <div class="price" data-p="web">₹4,999</div>
-        <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span></div>
-        <div class="perday" data-pd="web"></div>
+        <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="web"></span></div>
         <div class="rec-extra js-rec-extra"></div>
         <ul>
           <li><span class="hi">मोबाइल पर चलने वाली वेबसाइट</span><span class="en">Mobile-first website</span></li>
@@ -1133,10 +1272,9 @@
       <div class="plan" data-plan="app">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट + ऐप</span><span class="en">Website + App</span></h3>
-        <p class="for"><span class="hi">किराना, ढाबा और रोज़ ऑर्डर वाली दुकानों के लिए</span><span class="en">For shops that take daily orders</span></p>
+        <p class="for"><span class="hi">रोज़ ऑर्डर वाली दुकानों के लिए</span><span class="en">For shops that take daily orders</span></p>
         <div class="price" data-p="app">₹11,999</div>
-        <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span></div>
-        <div class="perday" data-pd="app"></div>
+        <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="app"></span></div>
         <div class="free-note"><span class="hi">₹2,498 का सामान फ्री</span><span class="en">₹2,498 of extras included free</span></div>
         <ul>
           <li><span class="hi">वेबसाइट वाला सब कुछ</span><span class="en">Everything in Website</span></li>
@@ -1150,7 +1288,7 @@
       <div class="plan" data-plan="all">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">सब कुछ</span><span class="en">Everything</span></h3>
-        <p class="for"><span class="hi">क्लिनिक, सैलून, कोचिंग और बुकिंग वाले काम के लिए</span><span class="en">For clinics, salons, coaching and bookings</span></p>
+        <p class="for"><span class="hi">क्लिनिक, सैलून और कोचिंग के लिए</span><span class="en">For clinics, salons and coaching</span></p>
         <div class="price" data-p="all">₹19,999</div>
         <div class="once"><span class="hi">+ ₹999 महीना</span><span class="en">+ ₹999 a month</span></div>
         <ul>
@@ -1164,7 +1302,7 @@
       <div class="plan" data-plan="big">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">बड़ा काम</span><span class="en">Custom</span></h3>
-        <p class="for"><span class="hi">स्कूल, बड़े स्टोर और ऑफिस के लिए</span><span class="en">For schools, larger stores and offices</span></p>
+        <p class="for"><span class="hi">स्कूल और ऑफिस के लिए</span><span class="en">For schools and offices</span></p>
         <div class="price"><small><span class="hi">से शुरू </span><span class="en">from </span></small>₹25,000</div>
         <div class="once"><span class="hi">काम के हिसाब से</span><span class="en">priced on the work</span></div>
         <ul>
@@ -1485,7 +1623,7 @@
     });
     $$(".perday[data-pd]").forEach(el => {
       const d = Math.round(priceNow(el.dataset.pd) / 365);
-      el.textContent = d <= 20 ? (hi ? `रोज़ ₹${d}, एक चाय से कम` : `₹${d} a day, less than a cup of tea`) : (hi ? `रोज़ सिर्फ ₹${d}` : `Just ₹${d} a day`);
+      el.textContent = d <= 20 ? (hi ? `≈ रोज़ ₹${d}` : `≈ ₹${d} a day`) : (hi ? `≈ रोज़ ₹${d}` : `≈ ₹${d} a day`);
     });
     $$(".js-from").forEach(el => el.textContent = rupee(priceNow("web")));
     $(".js-rec-extra").innerHTML = hi
@@ -1712,7 +1850,9 @@
   Object.entries(TYPES).forEach(([k, t]) => {
     const b = document.createElement("button");
     b.type = "button"; b.className = "type"; b.dataset.type = k;
-    b.innerHTML = `<span class="em">${t.e}</span><span class="hi">${t.hi}</span><span class="en">${t.en}</span>`;
+    const short = s => s.split(" / ")[0].replace(/ (store|shop)$/, "").replace(" की दुकान", "");
+    b.title = t.en;
+    b.innerHTML = `<span class="em">${t.e}</span><span class="hi"><span class="full">${t.hi}</span><span class="short">${short(t.hi)}</span></span><span class="en"><span class="full">${t.en}</span><span class="short">${short(t.en)}</span></span>`;
     b.addEventListener("click", () => { stopDemo(); type = k; userTouchedProfit = false; render(); });
     typesBox.appendChild(b);
   });
@@ -1743,8 +1883,8 @@
     if (was) {
       offerEl.style.display = "";
       offerEl.textContent = lang === "hi"
-        ? `${OFFER.name.hi}: ${rupee(was - now)} की बचत, 1 नवंबर तक। उसके बाद ${rupee(was)}।`
-        : `${OFFER.name.en}: save ${rupee(was - now)} until 1 November. After that ${rupee(was)}.`;
+        ? `${OFFER.name.hi}: ${rupee(was - now)} की बचत, 1 नवंबर तक`
+        : `${OFFER.name.en}: save ${rupee(was - now)} till 1 November`;
     } else offerEl.style.display = "none";
     $(".js-why").textContent = SHOW[type].why[lang];
     $(".js-ps-price").innerHTML = $(".buy .js-plan-price").innerHTML;
@@ -2133,7 +2273,17 @@
                      : (hi ? `ऑर्डर के लिए बस ${days} दिन बाकी` : `Only ${days} days left to order`);
     });
     $$(".js-fest-name").forEach(el => el.textContent = FESTIVAL[el.closest(".hi") ? "hi" : "en"]);
+    const save = Math.max(0, ...Object.keys(OFFER.regular).map(k => priceWas(k) ? priceWas(k) - priceNow(k) : 0));
+    $$(".js-fest-save").forEach(el => el.textContent = rupee(save));
+    $(".op-big").style.display = save ? "" : "none";
   }
+  // Offer details open from the nav pill
+  const offerBtn = $("#offerBtn"), offerPop = $("#offerPop");
+  const setOffer = open => { offerPop.hidden = !open; offerBtn.setAttribute("aria-expanded", open ? "true" : "false"); };
+  offerBtn.addEventListener("click", e => { e.stopPropagation(); setOffer(offerPop.hidden); });
+  offerPop.addEventListener("click", e => { if (e.target.closest("a")) setOffer(false); });
+  document.addEventListener("click", e => { if (!offerPop.hidden && !e.target.closest("#fest")) setOffer(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !offerPop.hidden) { setOffer(false); offerBtn.focus(); } });
   festival();
 
   // Customer review cards
