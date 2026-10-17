@@ -81,8 +81,8 @@
       "@type": "Offer",
       "itemOffered": {
        "@type": "Service",
-       "name": "Website + Android app",
-       "description": "Website, Android app on Google Play, Google Maps listing, WhatsApp Business setup and logo"
+       "name": "Website + WhatsApp",
+       "description": "Website, Google Maps listing, WhatsApp Business setup with catalogue and auto replies, logo and Google review QR standee"
       }
      },
      {
@@ -90,7 +90,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Complete package",
-       "description": "Website, app, automatic WhatsApp bookings/orders, UPI payments, Instagram and Facebook pages, review QR standee, and monthly updates with local SEO"
+       "description": "Everything in Website + WhatsApp, plus an Android app on Google Play, automatic WhatsApp bookings/orders, UPI payments, Instagram and Facebook pages, and monthly updates with local SEO"
       }
      },
      {
@@ -114,7 +114,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Branding and shop tools",
-       "description": "Logo design, shop photoshoot, promo reels, print kit, business email, UPI payments, product catalogue, billing and stock software, loyalty cards"
+       "description": "Logo design, shop photoshoot, promo reels, print kit, business email, UPI payments, product catalogue, billing and stock software, an Android app"
       }
      }
     ]
@@ -740,10 +740,9 @@
   }
 
   /* What each plan includes, at a glance */
-  .incl{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
-  .incl > span{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:2px 7px;font-size:11px;font-weight:600;background:var(--sand-2);color:#9AA0AC;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.25)}
+  .incl{display:flex;flex-wrap:wrap;gap:3px;margin-top:10px}
+  .incl > span{display:inline-flex;align-items:center;gap:2px;border-radius:999px;padding:2px 6px;font-size:10.5px;font-weight:600;background:var(--sand-2);color:#9AA0AC;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.25)}
   .incl > span.on{background:#E9F6EE;color:#0B6B35;text-decoration:none}
-  .incl > span.on:not(.plus)::before{content:"✓";font-weight:700}
   .incl > span.plus{background:var(--gold-soft);color:var(--gold-ink)}
   .extras{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;font-size:14.5px;color:var(--muted)}
   .extras b{color:var(--ink)}
@@ -1320,7 +1319,7 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट</span><span class="en">Website</span></h3>
         <p class="for"><span class="hi">कारीगर और छोटी दुकानों के लिए</span><span class="en">For trades and small shops</span></p>
-        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span><span class="hi">ऐप</span><span class="en">App</span></span><span>Maps</span><span>WhatsApp</span></div>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span>Maps</span><span>WhatsApp</span><span><span class="hi">ऐप</span><span class="en">App</span></span></div>
         <div class="price" data-p="web">₹4,999</div>
         <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="web"></span></div>
         <div class="rec-extra js-rec-extra"></div>
@@ -1335,17 +1334,17 @@
       </div>
       <div class="plan" data-plan="app">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
-        <h3><span class="hi">वेबसाइट + ऐप</span><span class="en">Website + App</span></h3>
-        <p class="for"><span class="hi">रोज़ ऑर्डर वाली दुकानों के लिए</span><span class="en">For shops that take daily orders</span></p>
-        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span><span class="on">Maps</span><span class="on">WhatsApp</span></div>
+        <h3><span class="hi">वेबसाइट + WhatsApp</span><span class="en">Website + WhatsApp</span></h3>
+        <p class="for"><span class="hi">ज़्यादातर दुकानों और सर्विस के लिए</span><span class="en">For most shops and services</span></p>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on">Maps</span><span class="on">WhatsApp</span><span><span class="hi">ऐप</span><span class="en">App</span></span></div>
         <div class="price" data-p="app">₹9,999</div>
         <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="app"></span></div>
-        <div class="free-note"><span class="hi">₹3,497 का सामान फ्री</span><span class="en">₹3,497 of extras included free</span></div>
+        <div class="free-note"><span class="hi">₹4,296 का सामान फ्री</span><span class="en">₹4,296 of extras included free</span></div>
         <ul>
-          <li><span class="hi">पूरी वेबसाइट + Android ऐप</span><span class="en">Full website + Android app</span></li>
+          <li><span class="hi">पूरी वेबसाइट</span><span class="en">The full website</span></li>
           <li><span class="hi">Google Maps <b>(₹1,499 फ्री)</b></span><span class="en">Google Maps <b>(₹1,499 free)</b></span></li>
           <li><span class="hi">WhatsApp बिज़नेस <b>(₹999 फ्री)</b></span><span class="en">WhatsApp Business <b>(₹999 free)</b></span></li>
-          <li><span class="hi">दुकान का लोगो <b>(₹999 फ्री)</b></span><span class="en">Shop logo <b>(₹999 free)</b></span></li>
+          <li><span class="hi">लोगो + रिव्यू QR <b>(₹1,798 फ्री)</b></span><span class="en">Logo + review QR <b>(₹1,798 free)</b></span></li>
           <li><span class="hi">3 महीने फ्री मदद + हर महीने रिपोर्ट</span><span class="en">3 months help + monthly report</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
@@ -1353,17 +1352,16 @@
       <div class="plan" data-plan="all">
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">सब कुछ</span><span class="en">Everything</span></h3>
-        <p class="for"><span class="hi">क्लिनिक, सैलून और कोचिंग के लिए</span><span class="en">For clinics, salons and coaching</span></p>
-        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span><span class="on">Maps</span><span class="on">WhatsApp</span></div>
+        <p class="for"><span class="hi">क्लिनिक और बड़ी दुकानों के लिए</span><span class="en">For clinics and busy shops</span></p>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on">Maps</span><span class="on">WhatsApp</span><span class="on"><span class="hi">ऐप</span><span class="en">App</span></span></div>
         <div class="price" data-p="all">₹19,999</div>
         <div class="once"><span class="hi">+ ₹999 महीना, जब चाहें बंद</span><span class="en">+ ₹999 a month, stop anytime</span></div>
         <div class="free-note"><span class="hi">₹7,294 का सामान फ्री</span><span class="en">₹7,294 of extras included free</span></div>
         <ul>
-          <li><span class="hi">वेबसाइट, ऐप, Maps, WhatsApp, लोगो</span><span class="en">Website, app, Maps, WhatsApp, logo</span></li>
+          <li><span class="hi">वेबसाइट, Maps, WhatsApp, लोगो</span><span class="en">Website, Maps, WhatsApp, logo</span></li>
+          <li><span class="hi">Google Play पर आपका अपना ऐप</span><span class="en">Your own app on Google Play</span></li>
           <li><span class="hi">WhatsApp पर ऑटो बुकिंग/ऑर्डर</span><span class="en">Auto bookings on WhatsApp</span></li>
-
-          <li><span class="hi">Insta + FB पेज <b>(₹1,999 फ्री)</b></span><span class="en">Insta + FB pages <b>(₹1,999 free)</b></span></li>
-          <li><span class="hi">UPI + रिव्यू QR स्टैंडी <b>(फ्री)</b></span><span class="en">UPI + review QR standee <b>(free)</b></span></li>
+          <li><span class="hi">UPI + Insta/FB पेज <b>(₹2,998 फ्री)</b></span><span class="en">UPI + Insta/FB pages <b>(₹2,998 free)</b></span></li>
           <li><span class="hi">हर महीने बदलाव, SEO, रिपोर्ट</span><span class="en">Monthly updates, SEO, report</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
@@ -1438,7 +1436,7 @@
           <li><a class="js-addon" href="#" data-en="UPI and online payments" data-hi="UPI और ऑनलाइन पेमेंट"><span class="ad-top"><b><span class="en">UPI payments</span><span class="hi">UPI पेमेंट</span></b><em>₹999</em></span><small><span class="en">QR code and payment links</span><span class="hi">QR कोड और पेमेंट लिंक</span></small></a></li>
           <li><a class="js-addon" href="#" data-en="Product catalogue" data-hi="प्रोडक्ट कैटलॉग"><span class="ad-top"><b><span class="en">Product catalogue</span><span class="hi">प्रोडक्ट कैटलॉग</span></b><em>₹1,999</em></span><small><span class="en">Up to 100 items with photos</span><span class="hi">फोटो के साथ 100 सामान तक</span></small></a></li>
           <li><a class="js-addon" href="#" data-en="Billing and stock software" data-hi="बिलिंग और स्टॉक सॉफ्टवेयर"><span class="ad-top"><b><span class="en">Billing software</span><span class="hi">बिलिंग सॉफ्टवेयर</span></b><em>₹4,999</em></span><small><span class="en">Bills, stock and daily sales report</span><span class="hi">बिल, स्टॉक और रोज़ की बिक्री</span></small></a></li>
-          <li><a class="js-addon" href="#" data-en="Loyalty card" data-hi="लॉयल्टी कार्ड"><span class="ad-top"><b><span class="en">Loyalty card</span><span class="hi">लॉयल्टी कार्ड</span></b><em>₹2,999</em></span><small><span class="en">Digital points for regulars</span><span class="hi">पक्के ग्राहकों के लिए डिजिटल पॉइंट</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Android app" data-hi="Android ऐप"><span class="ad-top"><b><span class="en">Your own app</span><span class="hi">अपना ऐप</span></b><em>₹6,999</em></span><small><span class="en">Android app on Google Play, in your name</span><span class="hi">Google Play पर आपके नाम का ऐप</span></small></a></li>
         </ul>
       </div>
     </div>
@@ -1610,7 +1608,7 @@
       q:{hi:"मेडिकल स्टोर",en:"medical store"},
       msg:{hi:"पर्ची की फोटो भेजी है, दवा भेज दीजिए",en:"I've sent the prescription photo, please send the medicines"},
       order:{hi:"पर्ची वाली दवाइयाँ · घर पर",en:"Prescription medicines · home delivery"}},
-    salon:{e:"💇",c:"#F9A8D4",hi:"सैलून / पार्लर",en:"Salon / Parlour",plan:"all",profit:200,cust:40,
+    salon:{e:"💇",c:"#F9A8D4",hi:"सैलून / पार्लर",en:"Salon / Parlour",plan:"app",profit:200,cust:40,
       svc:{hi:["हेयर कट","फेशियल","दुल्हन मेकअप"],en:["Haircut","Facial","Bridal makeup"]},
       q:{hi:"सैलून",en:"salon"},
       msg:{hi:"कल शाम 6 बजे हेयर कट का टाइम मिलेगा?",en:"Can I get a haircut slot tomorrow at 6 PM?"},
@@ -1620,7 +1618,7 @@
       q:{hi:"डॉक्टर",en:"doctor"},
       msg:{hi:"कल सुबह डॉक्टर साहब मिलेंगे?",en:"Is the doctor available tomorrow morning?"},
       order:{hi:"डॉक्टर से मिलना · कल सुबह 11 बजे",en:"Doctor visit · Tomorrow 11 AM"}},
-    coaching:{e:"📚",c:"#C4B5FD",hi:"कोचिंग / ट्यूशन",en:"Coaching / Tuition",plan:"all",profit:1500,cust:10,
+    coaching:{e:"📚",c:"#C4B5FD",hi:"कोचिंग / ट्यूशन",en:"Coaching / Tuition",plan:"app",profit:1500,cust:10,
       svc:{hi:["क्लास 6 से 12","फ्री डेमो क्लास","टेस्ट सीरीज़"],en:["Class 6 to 12","Free demo class","Test series"]},
       q:{hi:"कोचिंग",en:"coaching"},
       msg:{hi:"बेटे के लिए 10वीं की कोचिंग चाहिए",en:"I need class 10 coaching for my son"},
@@ -1635,17 +1633,17 @@
       q:{hi:"ढाबा",en:"dhaba"},
       msg:{hi:"2 थाली पैक कर दो, 20 मिनट में आ रहा हूँ",en:"Please pack 2 thalis, coming in 20 minutes"},
       order:{hi:"2 थाली · पैक करनी है",en:"2 thalis · takeaway"}},
-    clothes:{e:"👗",c:"#FDA4AF",hi:"कपड़े की दुकान",en:"Clothes shop",plan:"all",profit:300,cust:30,
+    clothes:{e:"👗",c:"#FDA4AF",hi:"कपड़े की दुकान",en:"Clothes shop",plan:"app",profit:300,cust:30,
       svc:{hi:["साड़ी, सूट","बच्चों के कपड़े","शादी का कलेक्शन"],en:["Sarees, suits","Kids' clothes","Wedding collection"]},
       q:{hi:"कपड़े की दुकान",en:"clothes shop"},
       msg:{hi:"नया शादी वाला कलेक्शन आया है क्या?",en:"Has the new wedding collection arrived?"},
       order:{hi:"शादी का कलेक्शन · कल देखने आएंगे",en:"Wedding collection · visiting tomorrow"}},
-    lawyer:{e:"⚖️",c:"#CBD5E1",hi:"वकील / CA",en:"Lawyer / CA",plan:"all",profit:1500,cust:10,
+    lawyer:{e:"⚖️",c:"#CBD5E1",hi:"वकील / CA",en:"Lawyer / CA",plan:"app",profit:1500,cust:10,
       svc:{hi:["कोर्ट केस","GST, ITR","ज़मीन के कागज़"],en:["Court cases","GST, ITR","Property papers"]},
       q:{hi:"वकील",en:"lawyer"},
       msg:{hi:"GST रजिस्ट्रेशन करवाना है, फीस कितनी है?",en:"I need GST registration, what is the fee?"},
       order:{hi:"GST रजिस्ट्रेशन · मीटिंग कल 12 बजे",en:"GST registration · meeting tomorrow 12 PM"}},
-    gym:{e:"🏋️",c:"#FDE047",hi:"जिम",en:"Gym",plan:"all",profit:800,cust:10,
+    gym:{e:"🏋️",c:"#FDE047",hi:"जिम",en:"Gym",plan:"app",profit:800,cust:10,
       svc:{hi:["महीने की मेंबरशिप","पर्सनल ट्रेनर","सुबह-शाम बैच"],en:["Monthly membership","Personal trainer","Morning & evening batches"]},
       q:{hi:"जिम",en:"gym"},
       msg:{hi:"जिम की महीने की फीस कितनी है?",en:"What is the monthly gym fee?"},
@@ -1681,7 +1679,7 @@
       tiles:[["🚰","नल","Taps"],["🛁","बाथरूम","Bathroom"],["💧","टंकी","Tank"],["🔧","पाइप","Pipes"]],
       cta:{hi:"प्लंबर बुलाएँ",en:"Call a plumber"},quick:[["रेट बताइए","Send rates"],["आज आ सकते हो?","Can you come today?"]],
       slot:{svc:{hi:"नल ठीक करना",en:"Tap repair"},when:{hi:"कल सुबह 9 बजे",en:"Tomorrow, 9 AM"},who:"सुनीता / Sunita"}},
-    kirana:{why:{hi:"ऐप से घर बैठे ऑर्डर, और WhatsApp पर पूरी रेट लिस्ट",en:"Orders from home through your app, full price list on WhatsApp"},tag:{hi:"🚚 घर तक डिलीवरी",en:"🚚 Home delivery"},hours:{hi:"सुबह 7 – रात 10",en:"7 AM – 10 PM"},kind:"order",
+    kirana:{why:{hi:"पूरी रेट लिस्ट के साथ WhatsApp पर घर बैठे ऑर्डर",en:"Orders from home on WhatsApp, with your full price list"},tag:{hi:"🚚 घर तक डिलीवरी",en:"🚚 Home delivery"},hours:{hi:"सुबह 7 – रात 10",en:"7 AM – 10 PM"},kind:"order",
       items:[["आटा 5 किलो","Flour 5 kg","₹240"],["सरसों तेल 1 लीटर","Mustard oil 1 L","₹160"],["अरहर दाल 1 किलो","Toor dal 1 kg","₹150"],["चीनी 1 किलो","Sugar 1 kg","₹45"]],
       tiles:[["🍚","राशन","Groceries"],["🥛","दूध-दही","Dairy"],["🧴","साबुन-तेल","Soap & oil"],["🍪","बिस्कुट-नमकीन","Snacks"]],
       cta:{hi:"ऑर्डर करें",en:"Order now"},quick:[["लिस्ट भेजें","Send my list"],["डिलीवरी कब तक?","When will it arrive?"]],
@@ -1691,7 +1689,7 @@
       tiles:[["📸","पर्ची भेजें","Send prescription"],["💊","दवाइयाँ","Medicines"],["🩺","हेल्थ डिवाइस","Devices"],["👶","बेबी केयर","Baby care"]],
       cta:{hi:"पर्ची भेजें",en:"Send prescription"},quick:[["पर्ची भेज रहा हूँ","Sending prescription"],["दवा मिलेगी?","Is it available?"]],
       order:{rows:[["पर्ची की 3 दवाइयाँ","3 prescribed medicines","₹420"],["घर तक डिलीवरी","Home delivery","₹0"]],total:"₹420",who:"गुप्ता जी, सेक्टर 5 / Mr Gupta, Sector 5"}},
-    salon:{why:{hi:"पहले से टाइम बुकिंग और ग्राहक को अपने आप रिमाइंडर",en:"Advance slot booking with automatic reminders"},tag:{hi:"📅 पहले से टाइम बुक, बिना इंतज़ार",en:"📅 Book ahead, no waiting"},hours:{hi:"सुबह 10 – रात 9",en:"10 AM – 9 PM"},kind:"slot",
+    salon:{why:{hi:"WhatsApp पर टाइम बुकिंग, रेट लिस्ट एक टच में",en:"Slot bookings on WhatsApp, rate list one tap away"},tag:{hi:"📅 पहले से टाइम बुक, बिना इंतज़ार",en:"📅 Book ahead, no waiting"},hours:{hi:"सुबह 10 – रात 9",en:"10 AM – 9 PM"},kind:"slot",
       items:[["हेयर कट","Haircut","₹150"],["फेशियल","Facial","₹500"],["हेयर कलर","Hair colour","₹800"],["दुल्हन मेकअप","Bridal makeup","₹8,000 से"]],
       tiles:[["✂️","हेयर","Hair"],["💆","फेशियल","Facial"],["💅","नेल्स","Nails"],["👰","दुल्हन","Bridal"]],
       cta:{hi:"टाइम बुक करें",en:"Book a slot"},quick:[["आज का टाइम?","Today's slots?"],["रेट लिस्ट भेजें","Send price list"]],
@@ -1701,7 +1699,7 @@
       tiles:[["👨‍⚕️","डॉक्टर","Doctor"],["🧪","जाँच","Tests"],["💊","दवा","Medicines"],["🏠","घर पर","Home visit"]],
       cta:{hi:"नंबर लगाएँ",en:"Get a token"},quick:[["आज डॉक्टर हैं?","Is the doctor in today?"],["फीस कितनी है?","What's the fee?"]],
       slot:{svc:{hi:"डॉक्टर से मिलना · नंबर 7",en:"Doctor visit · token 7"},when:{hi:"कल सुबह 11 बजे",en:"Tomorrow, 11 AM"},who:"रमेश / Ramesh"}},
-    coaching:{why:{hi:"डेमो क्लास बुकिंग, फीस रिमाइंडर और पेरेंट्स को अपने आप मैसेज",en:"Demo bookings, fee reminders and automatic messages to parents"},tag:{hi:"🎯 फ्री डेमो क्लास",en:"🎯 Free demo class"},hours:{hi:"दोपहर 2 – रात 8",en:"2 PM – 8 PM"},kind:"slot",
+    coaching:{why:{hi:"WhatsApp पर डेमो क्लास बुकिंग, और पेरेंट्स आपको Google पर ढूंढें",en:"Demo class bookings on WhatsApp, and parents find you on Google"},tag:{hi:"🎯 फ्री डेमो क्लास",en:"🎯 Free demo class"},hours:{hi:"दोपहर 2 – रात 8",en:"2 PM – 8 PM"},kind:"slot",
       items:[["क्लास 9-10","Class 9-10","₹1,200/महीना"],["क्लास 11-12","Class 11-12","₹1,800/महीना"],["टेस्ट सीरीज़","Test series","₹500"],["स्पोकन इंग्लिश","Spoken English","₹999/महीना"]],
       tiles:[["📖","क्लासेस","Classes"],["📝","टेस्ट","Tests"],["🏆","रिज़ल्ट","Results"],["🎥","वीडियो","Videos"]],
       cta:{hi:"डेमो क्लास बुक करें",en:"Book a demo class"},quick:[["फीस बताइए","Tell me the fees"],["बैच टाइमिंग?","Batch timings?"]],
@@ -1711,22 +1709,22 @@
       tiles:[["📝","एडमिशन","Admissions"],["💰","फीस","Fees"],["📢","नोटिस","Notices"],["🚌","बस","Bus"]],
       cta:{hi:"एडमिशन पूछें",en:"Ask about admission"},quick:[["फीस बताइए","Tell me the fees"],["एडमिशन कब तक?","Last date for admission?"]],
       slot:{svc:{hi:"एडमिशन पूछताछ · नर्सरी",en:"Admission enquiry · Nursery"},when:{hi:"शनिवार सुबह 10 बजे",en:"Saturday, 10 AM"},who:"वर्मा परिवार / Verma family"}},
-    dhaba:{why:{hi:"ऐप और WhatsApp से सीधे ऑर्डर, किसी को कमीशन नहीं",en:"Direct orders on your app and WhatsApp, no commission to anyone"},tag:{hi:"🛵 30 मिनट में डिलीवरी",en:"🛵 Delivery in 30 minutes"},hours:{hi:"सुबह 11 – रात 11",en:"11 AM – 11 PM"},kind:"order",
+    dhaba:{why:{hi:"मेन्यू के साथ WhatsApp पर सीधे ऑर्डर, किसी को कमीशन नहीं",en:"Direct orders on WhatsApp with your menu, no commission to anyone"},tag:{hi:"🛵 30 मिनट में डिलीवरी",en:"🛵 Delivery in 30 minutes"},hours:{hi:"सुबह 11 – रात 11",en:"11 AM – 11 PM"},kind:"order",
       items:[["वेज थाली","Veg thali","₹120"],["आलू पराठा","Aloo paratha","₹50"],["दाल मखनी","Dal makhani","₹140"],["लस्सी","Lassi","₹40"]],
       tiles:[["🍛","थाली","Thali"],["🫓","पराठे","Parathas"],["🥘","सब्ज़ी","Curries"],["🥤","ड्रिंक्स","Drinks"]],
       cta:{hi:"ऑर्डर करें",en:"Order now"},quick:[["आज का मेनू?","Today's menu?"],["पैक कर दो","Pack it for me"]],
       order:{rows:[["2 वेज थाली","2 veg thali","₹240"],["2 लस्सी","2 lassi","₹80"]],total:"₹320",who:"पैक करके रखना है / Takeaway"}},
-    clothes:{why:{hi:"पूरा कलेक्शन फोटो के साथ ऑनलाइन, WhatsApp पर सीधे ऑर्डर, और नया माल आते ही ग्राहकों को अपने आप मैसेज",en:"Your full collection online with photos, direct WhatsApp orders, and automatic messages when new stock arrives"},tag:{hi:"✨ नया शादी कलेक्शन",en:"✨ New wedding collection"},hours:{hi:"सुबह 10 – रात 9",en:"10 AM – 9 PM"},kind:"slot",
+    clothes:{why:{hi:"पूरा कलेक्शन फोटो के साथ WhatsApp कैटलॉग में, ऑर्डर सीधे WhatsApp पर",en:"Your collection with photos in a WhatsApp catalogue, orders straight on WhatsApp"},tag:{hi:"✨ नया शादी कलेक्शन",en:"✨ New wedding collection"},hours:{hi:"सुबह 10 – रात 9",en:"10 AM – 9 PM"},kind:"slot",
       items:[["साड़ी","Sarees","₹799 से"],["सूट","Suits","₹599 से"],["लहंगा","Lehenga","₹2,999 से"],["बच्चों के कपड़े","Kids' wear","₹299 से"]],
       tiles:[["🥻","साड़ी","Sarees"],["👗","सूट","Suits"],["👰","लहंगा","Lehenga"],["🧒","बच्चे","Kids"]],
       cta:{hi:"कलेक्शन देखें",en:"See collection"},quick:[["फोटो भेजिए","Send photos"],["साइज़ मिलेगा?","Is my size there?"]],
       slot:{svc:{hi:"शादी का कलेक्शन देखना",en:"Wedding collection visit"},when:{hi:"कल शाम 5 बजे",en:"Tomorrow, 5 PM"},who:"नेहा / Neha"}},
-    lawyer:{why:{hi:"क्लाइंट मीटिंग अपने आप बुक, कागज़ WhatsApp पर, और तारीख का रिमाइंडर",en:"Client meetings booked automatically, documents on WhatsApp, and date reminders"},tag:{hi:"📞 पहली सलाह फोन पर",en:"📞 First advice on phone"},hours:{hi:"सुबह 10 – शाम 6",en:"10 AM – 6 PM"},kind:"slot",
+    lawyer:{why:{hi:"क्लाइंट आपको Google पर ढूंढें और WhatsApp पर मीटिंग बुक करें",en:"Clients find you on Google and book a meeting on WhatsApp"},tag:{hi:"📞 पहली सलाह फोन पर",en:"📞 First advice on phone"},hours:{hi:"सुबह 10 – शाम 6",en:"10 AM – 6 PM"},kind:"slot",
       items:[["GST रजिस्ट्रेशन","GST registration","₹1,500"],["ITR फाइलिंग","ITR filing","₹999"],["केस में सलाह","Case advice","₹500"],["ज़मीन के कागज़","Property papers","₹2,000 से"]],
       tiles:[["🧾","GST","GST"],["📄","ITR","ITR"],["⚖️","केस","Cases"],["🏠","प्रॉपर्टी","Property"]],
       cta:{hi:"मीटिंग बुक करें",en:"Book a meeting"},quick:[["फीस बताइए","Tell me the fee"],["कौन से कागज़ चाहिए?","Which documents?"]],
       slot:{svc:{hi:"GST रजिस्ट्रेशन मीटिंग",en:"GST registration meeting"},when:{hi:"कल दोपहर 12 बजे",en:"Tomorrow, 12 PM"},who:"अग्रवाल ट्रेडर्स / Agarwal Traders"}},
-    gym:{why:{hi:"फ्री ट्रायल बुकिंग, और मेंबरशिप खत्म होने से पहले अपने आप रिमाइंडर",en:"Free-trial bookings and automatic reminders before membership ends"},tag:{hi:"🎁 1 दिन फ्री ट्रायल",en:"🎁 1-day free trial"},hours:{hi:"सुबह 5 – रात 10",en:"5 AM – 10 PM"},kind:"slot",
+    gym:{why:{hi:"WhatsApp पर फ्री ट्रायल बुकिंग, और Google Maps पर आपका जिम",en:"Free-trial bookings on WhatsApp, and your gym on Google Maps"},tag:{hi:"🎁 1 दिन फ्री ट्रायल",en:"🎁 1-day free trial"},hours:{hi:"सुबह 5 – रात 10",en:"5 AM – 10 PM"},kind:"slot",
       items:[["1 महीना","1 month","₹800"],["3 महीने","3 months","₹2,100"],["पर्सनल ट्रेनर","Personal trainer","₹3,000/महीना"],["डाइट प्लान","Diet plan","₹500"]],
       tiles:[["🏋️","जिम","Gym"],["🧘","योगा","Yoga"],["🥗","डाइट","Diet"],["👟","ट्रेनर","Trainer"]],
       cta:{hi:"फ्री ट्रायल बुक करें",en:"Book free trial"},quick:[["फीस बताइए","Tell me the fees"],["टाइमिंग?","Timings?"]],
@@ -1940,7 +1938,7 @@
 
   const PLANS = {
     web:{hi:"वेबसाइट + Google पर दुकान",en:"Website + shop on Google"},
-    app:{hi:"वेबसाइट + ऐप",en:"Website + App"},
+    app:{hi:"वेबसाइट + WhatsApp",en:"Website + WhatsApp"},
     all:{hi:"सब कुछ (अपने आप ऑर्डर/बुकिंग)",en:"Everything (auto orders/bookings)"},
     big:{hi:"स्कूल पोर्टल",en:"School portal",from:true}
   };
@@ -1953,7 +1951,7 @@
   const recPrice = k => priceNow(k) + addOn(k);
   const recWas   = k => priceWas(k) ? priceWas(k) + addOn(k) : null;
   const planName = k => (k === "web" && !withGoogle) ? {hi:"सिर्फ वेबसाइट",en:"Website only"} : PLANS[k];
-  const PLAN_CARD_NAME = {web:{hi:"सिर्फ वेबसाइट",en:"Website only"},app:{hi:"वेबसाइट + ऐप",en:"Website + App"},all:{hi:"सब कुछ",en:"Everything"},big:{hi:"बड़ा काम",en:"Big projects"}};
+  const PLAN_CARD_NAME = {web:{hi:"सिर्फ वेबसाइट",en:"Website only"},app:{hi:"वेबसाइट + WhatsApp",en:"Website + WhatsApp"},all:{hi:"सब कुछ",en:"Everything"},big:{hi:"बड़ा काम",en:"Big projects"}};
 
   const $ = s => document.querySelector(s);
   const $$ = s => document.querySelectorAll(s);
@@ -2016,7 +2014,7 @@
       ? (perDay <= 20 ? `रोज़ सिर्फ ₹${perDay}, एक चाय से भी कम` : `पूरे साल का हिसाब: रोज़ सिर्फ ₹${perDay}`)
       : (perDay <= 20 ? `Just ₹${perDay} a day, less than a cup of tea` : `Over a year, just ₹${perDay} a day`);
     const FREE = {
-      app: {hi:"Google Maps, WhatsApp सेटअप और लोगो (₹3,497) फ्री", en:"Google Maps, WhatsApp setup and logo (₹3,497) included free"},
+      app: {hi:"Google Maps, WhatsApp, लोगो और रिव्यू QR (₹4,296) फ्री", en:"Google Maps, WhatsApp, logo and review QR (₹4,296) included free"},
       all: {hi:"₹7,294 का सामान फ्री: Google Maps, WhatsApp, लोगो, UPI, सोशल पेज, रिव्यू QR", en:"₹7,294 of extras free: Google Maps, WhatsApp, logo, UPI, social pages, review QR"}
     };
     const freeTxt = FREE[t.plan] ? FREE[t.plan][lang] : "";
@@ -2113,8 +2111,8 @@
     const back = $("#oBack");
     if (net <= 0) {
       back.innerHTML = lang === "hi"
-        ? `इतने ग्राहकों में महीने का खर्चा भी नहीं निकलेगा। आपके लिए <b>"वेबसाइट + ऐप"</b> (बिना महीने के चार्ज) बेहतर रहेगा।`
-        : `At this level the monthly fee won't be covered. <b>"Website + App"</b> (no monthly charge) suits you better.`;
+        ? `इतने ग्राहकों में महीने का खर्चा भी नहीं निकलेगा। आपके लिए <b>"वेबसाइट + WhatsApp"</b> (बिना महीने के चार्ज) बेहतर रहेगा।`
+        : `At this level the monthly fee won't be covered. <b>"Website + WhatsApp"</b> (no monthly charge) suits you better.`;
     } else if (days > 365) {
       back.innerHTML = lang === "hi"
         ? `इतने कम ग्राहकों में खर्चा निकलने में <b>1 साल से ज़्यादा</b> लगेगा। ग्राहक बढ़ाने के लिए Google रिव्यू सबसे ज़रूरी हैं।`
