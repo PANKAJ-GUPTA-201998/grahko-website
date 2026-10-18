@@ -74,7 +74,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "Business website",
-       "description": "Mobile-friendly website with call and WhatsApp buttons, map and 1 year hosting"
+       "description": "Mobile-friendly website with call and WhatsApp buttons, map, 1 year hosting and a free Google Maps listing"
       }
      },
      {
@@ -565,10 +565,6 @@
   .buy-list > *{display:flex;gap:10px;font-size:15px;line-height:1.45}
   .buy-list > *::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--wa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
   .buy-list .js-free:empty{display:none}
-  .g-add{display:flex !important;gap:12px;align-items:flex-start;cursor:pointer;background:var(--sand);border-radius:var(--r-sm);padding:12px 14px;margin-top:16px;font-size:15px;line-height:1.4}
-  .g-add[hidden]{display:none !important}
-  .g-add input{width:20px;height:20px;margin-top:1px;accent-color:var(--ink);flex:none}
-  .g-add small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
   .buy-btns{display:grid;gap:10px}
   .buy-btns .btn{width:100%}
   .share-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:6px;font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none}
@@ -609,7 +605,6 @@
     .buy .rec-plan strong{font-size:30px}
     .buy-list{margin:14px 0;padding:14px 0;gap:9px}
     .buy-list > *{font-size:14px}
-    .g-add{margin-top:12px;padding:10px 12px;font-size:14px}
     .buy-btns .btn{min-height:46px;font-size:15.5px}
     .buy-foot{margin-top:12px;font-size:12.5px}
     .pv-top{margin-bottom:10px}
@@ -623,8 +618,6 @@
     .buy{padding:18px 20px}
     .buy .rec-plan strong{font-size:28px}
     .buy .offer{font-size:13px}
-    .g-add{margin-top:10px;padding:9px 12px;font-size:13.5px}
-    .g-add small{display:none}
     .buy-list{margin:12px 0;padding:12px 0;gap:7px}
     .buy-list > *{font-size:13.5px}
     .buy-foot{margin-top:8px}
@@ -716,8 +709,6 @@
   .plan .perday{font-size:inherit;color:var(--muted)}
   .plan .perday:not(:empty)::before{content:" · "}
   .plan .free-note{font-size:13.5px;font-weight:600;color:#137a3d;margin-top:10px}
-  .plan .rec-extra{display:none;font-size:13.5px;background:var(--sand);border-radius:12px;padding:8px 12px;margin-top:12px}
-  .plan.is-rec .rec-extra{display:block}
   .plan ul{list-style:none;font-size:15px;display:flex;flex-direction:column;gap:10px;margin:22px 0 26px;padding-top:22px;border-top:1px solid var(--line)}
   .plan li{padding-left:26px;position:relative;line-height:1.45}
   .plan li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231FA855' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
@@ -762,6 +753,7 @@
   .ad-group li a small{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}
   .ad-group li a em{font-style:normal;font-weight:700;font-size:13.5px;white-space:nowrap}
   .ad-group li a:hover b{text-decoration:underline}
+  .ad-group li a em.free{color:#0B6B35}
   .ad-note{margin-top:16px;font-size:13px;color:var(--muted)}
   @media(max-width:1060px){.addons{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.addons{grid-template-columns:1fr}}
@@ -907,7 +899,7 @@
     .plan .for{min-height:0;font-size:13.5px}
     .price{font-size:36px;margin-top:14px}
     .plan .once{margin-top:6px}
-    .plan .free-note,.plan .rec-extra{margin-top:8px}
+    .plan .free-note{margin-top:8px}
     .plan ul{margin:12px 0 16px;padding-top:12px;gap:5px;font-size:13.5px}
     .plan{padding:22px 20px}
     .plan .btn{min-height:44px}
@@ -1160,9 +1152,6 @@
         <div class="rec-plan"><b class="js-plan-name"></b><strong class="js-plan-price"></strong></div>
         <div class="offer js-offer"></div>
         <div class="breakdown js-breakdown"></div>
-        <label class="g-add" id="gAdd"><input type="checkbox" id="gAddCheck" checked>
-          <span><span class="hi">Google Maps पर भी दुकान जोड़ें (+₹1,499)</span><span class="en">Also put my shop on Google Maps (+₹1,499)</span>
-          <small><span class="hi">सुझाव: पास के ग्राहक ज़्यादातर Google Maps से ही दुकान ढूंढते हैं</span><span class="en">Recommended: most nearby customers find shops on Google Maps</span></small></span></label>
         <div class="buy-list">
           <div class="js-why"></div>
           <div class="js-perday"></div>
@@ -1222,7 +1211,7 @@
         <span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span>
         <h3>Google Maps</h3>
         <p><span class="en">When someone nearby searches “electrician near me”, your shop shows up with directions and a call button.</span><span class="hi">जब कोई पास में “बिजली वाला” ढूंढे, तो आपकी दुकान दिखे, रास्ते और कॉल बटन के साथ।</span></p>
-        <span class="result"><span class="en">Get found by people nearby</span><span class="hi">पास के लोग आपको ढूंढ लें</span></span>
+        <span class="result"><span class="en">Free with every plan</span><span class="hi">हर प्लान में फ्री</span></span>
       </div>
       <div class="svc reveal">
         <span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span>
@@ -1319,16 +1308,16 @@
         <span class="rec-tag"><span class="hi">आपके लिए सही</span><span class="en">Right for you</span></span>
         <h3><span class="hi">वेबसाइट</span><span class="en">Website</span></h3>
         <p class="for"><span class="hi">कारीगर और छोटी दुकानों के लिए</span><span class="en">For trades and small shops</span></p>
-        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span>Maps</span><span>WhatsApp</span><span><span class="hi">ऐप</span><span class="en">App</span></span></div>
+        <div class="incl"><span class="on"><span class="hi">वेबसाइट</span><span class="en">Website</span></span><span class="on">Maps</span><span>WhatsApp</span><span><span class="hi">ऐप</span><span class="en">App</span></span></div>
         <div class="price" data-p="web">₹4,999</div>
         <div class="once"><span class="hi">एक बार</span><span class="en">one-time</span><span class="perday" data-pd="web"></span></div>
-        <div class="rec-extra js-rec-extra"></div>
+        <div class="free-note"><span class="hi">₹1,499 का सामान फ्री</span><span class="en">₹1,499 of extras included free</span></div>
         <ul>
           <li><span class="hi">मोबाइल वेबसाइट, 5 सेक्शन तक</span><span class="en">Mobile website, up to 5 sections</span></li>
           <li><span class="hi">.in डोमेन + होस्टिंग, 1 साल फ्री</span><span class="en">.in domain + hosting, 1 year free</span></li>
-          <li><span class="hi">कॉल, WhatsApp और रास्ता बटन</span><span class="en">Call, WhatsApp, directions buttons</span></li>
-          <li><span class="hi">आपके रेट, फोटो और नक्शा</span><span class="en">Your prices, photos and map</span></li>
-          <li><span class="hi">15 दिन तक फ्री बदलाव</span><span class="en">15 days of free changes</span></li>
+          <li><span class="hi">Google Maps <b>(₹1,499 फ्री)</b></span><span class="en">Google Maps <b>(₹1,499 free)</b></span></li>
+          <li><span class="hi">कॉल, WhatsApp और रास्ता बटन</span><span class="en">Call, WhatsApp, map buttons</span></li>
+          <li><span class="hi">रेट, फोटो + 15 दिन फ्री बदलाव</span><span class="en">Photos + 15 days of changes</span></li>
         </ul>
         <a class="btn btn-line js-plan-btn" href="#"><span class="hi">यह प्लान चुनें</span><span class="en">Choose this plan</span></a>
       </div>
@@ -1402,7 +1391,7 @@
       <div class="ad-group reveal">
         <div class="ad-head"><span class="svc-ic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span><h3><span class="en">Get found</span><span class="hi">ग्राहक आपको ढूंढें</span></h3></div>
         <ul>
-          <li><a class="js-addon" href="#" data-en="Google Maps listing" data-hi="Google Maps पर दुकान"><span class="ad-top"><b><span class="en">Google Maps listing</span><span class="hi">Google Maps पर दुकान</span></b><em>₹1,499</em></span><small><span class="en">Set up, verified, with photos</span><span class="hi">सेटअप, वेरिफ़िकेशन और फोटो</span></small></a></li>
+          <li><a class="js-addon" href="#" data-en="Google Maps listing" data-hi="Google Maps पर दुकान"><span class="ad-top"><b><span class="en">Google Maps listing</span><span class="hi">Google Maps पर दुकान</span></b><em class="free"><span class="en">Free with plans</span><span class="hi">प्लान में फ्री</span></em></span><small><span class="en">Set up, verified, with photos</span><span class="hi">सेटअप, वेरिफ़िकेशन और फोटो</span></small></a></li>
           <li><a class="js-addon" href="#" data-en="Local SEO" data-hi="लोकल SEO"><span class="ad-top"><b><span class="en">Local SEO</span><span class="hi">लोकल SEO</span></b><em><span class="en">₹1,999/mo</span><span class="hi">₹1,999/माह</span></em></span><small><span class="en">Show higher in “near me” searches</span><span class="hi">“पास में” वाली खोज में ऊपर दिखें</span></small></a></li>
           <li><a class="js-addon" href="#" data-en="Google review booster" data-hi="रिव्यू बूस्टर"><span class="ad-top"><b><span class="en">Review booster</span><span class="hi">रिव्यू बूस्टर</span></b><em>₹799</em></span><small><span class="en">QR standee + review link</span><span class="hi">QR स्टैंडी + रिव्यू लिंक</span></small></a></li>
           <li><a class="js-addon" href="#" data-en="JustDial and IndiaMART listing" data-hi="JustDial और IndiaMART लिस्टिंग"><span class="ad-top"><b>JustDial & IndiaMART</b><em>₹999</em></span><small><span class="en">Listings set up properly</span><span class="hi">लिस्टिंग सही तरीके से सेटअप</span></small></a></li>
@@ -1573,7 +1562,6 @@
   const PRICE = { web: 4999, app: 9999, all: 19999, big: 25000 };
   const OFFER = { until: "2026-11-01", name: { hi: "दिवाली ऑफर", en: "Diwali offer" },
                   regular: { web: 9999, app: 16999, all: 29999 } };   // save ₹5,000 / ₹7,000 / ₹10,000; big: no offer
-  const GOOGLE_ADDON = 1499;
   // Customer reviews. Add only REAL reviews, with the customer's permission.
   // The section stays hidden while this list is empty. "link" can point to their Google review or shop page.
   const REVIEWS = [
@@ -1744,9 +1732,6 @@
       el.textContent = d <= 20 ? (hi ? `≈ रोज़ ₹${d}` : `≈ ₹${d} a day`) : (hi ? `≈ रोज़ ₹${d}` : `≈ ₹${d} a day`);
     });
     $$(".js-from").forEach(el => el.textContent = rupee(priceNow("web")));
-    $(".js-rec-extra").innerHTML = hi
-      ? `+ Google Maps ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`
-      : `+ Google Maps ${rupee(GOOGLE_ADDON)} = <b>${rupee(recPrice("web"))}</b>`;
   }
 
   // More detail for each business's preview: rating, trust badges, an offer, a review,
@@ -1937,7 +1922,7 @@
   }
 
   const PLANS = {
-    web:{hi:"वेबसाइट + Google पर दुकान",en:"Website + shop on Google"},
+    web:{hi:"वेबसाइट + Google Maps",en:"Website + Google Maps"},
     app:{hi:"वेबसाइट + WhatsApp",en:"Website + WhatsApp"},
     all:{hi:"सब कुछ (अपने आप ऑर्डर/बुकिंग)",en:"Everything (auto orders/bookings)"},
     big:{hi:"स्कूल पोर्टल",en:"School portal",from:true}
@@ -1946,12 +1931,11 @@
   const offerOn = () => new Date() <= new Date(OFFER.until + "T23:59:59+05:30");
   const priceNow = k => (offerOn() || !OFFER.regular[k]) ? PRICE[k] : OFFER.regular[k];
   const priceWas = k => (offerOn() && OFFER.regular[k]) ? OFFER.regular[k] : null;
-  let withGoogle = true;   // "Google Maps पर भी दुकान जोड़ें" checkbox, website-only plan
-  const addOn = k => (k === "web" && withGoogle) ? GOOGLE_ADDON : 0;
-  const recPrice = k => priceNow(k) + addOn(k);
-  const recWas   = k => priceWas(k) ? priceWas(k) + addOn(k) : null;
-  const planName = k => (k === "web" && !withGoogle) ? {hi:"सिर्फ वेबसाइट",en:"Website only"} : PLANS[k];
-  const PLAN_CARD_NAME = {web:{hi:"सिर्फ वेबसाइट",en:"Website only"},app:{hi:"वेबसाइट + WhatsApp",en:"Website + WhatsApp"},all:{hi:"सब कुछ",en:"Everything"},big:{hi:"बड़ा काम",en:"Big projects"}};
+  // Google Maps listing is free in every plan, so the plan price is the whole price
+  const recPrice = k => priceNow(k);
+  const recWas   = k => priceWas(k);
+  const planName = k => PLANS[k];
+  const PLAN_CARD_NAME = {web:{hi:"वेबसाइट",en:"Website"},app:{hi:"वेबसाइट + WhatsApp",en:"Website + WhatsApp"},all:{hi:"सब कुछ",en:"Everything"},big:{hi:"बड़ा काम",en:"Big projects"}};
 
   const $ = s => document.querySelector(s);
   const $$ = s => document.querySelectorAll(s);
@@ -1992,7 +1976,6 @@
     // Recommended plan
     const p = PLANS[t.plan];
     $$(".js-plan-name").forEach(el => el.textContent = planName(t.plan)[lang]);
-    $("#gAdd").hidden = t.plan !== "web";
     const now = recPrice(t.plan), was = recWas(t.plan);
     const priceTxt = (p.from ? (lang === "hi" ? "" : "from ") : "") + rupee(now) + (p.from && lang === "hi" ? " से" : "");
     $$(".js-plan-price").forEach(el => el.textContent = priceTxt);
@@ -2014,6 +1997,7 @@
       ? (perDay <= 20 ? `रोज़ सिर्फ ₹${perDay}, एक चाय से भी कम` : `पूरे साल का हिसाब: रोज़ सिर्फ ₹${perDay}`)
       : (perDay <= 20 ? `Just ₹${perDay} a day, less than a cup of tea` : `Over a year, just ₹${perDay} a day`);
     const FREE = {
+      web: {hi:"Google Maps पर दुकान (₹1,499) फ्री", en:"Google Maps listing (₹1,499) included free"},
       app: {hi:"Google Maps, WhatsApp, लोगो और रिव्यू QR (₹4,296) फ्री", en:"Google Maps, WhatsApp, logo and review QR (₹4,296) included free"},
       all: {hi:"₹7,294 का सामान फ्री: Google Maps, WhatsApp, लोगो, UPI, सोशल पेज, रिव्यू QR", en:"₹7,294 of extras free: Google Maps, WhatsApp, logo, UPI, social pages, review QR"}
     };
@@ -2024,9 +2008,7 @@
       ? `शुरू करने के लिए अभी सिर्फ <b>${rupee(half)}</b>, बाकी काम पूरा होने पर`
       : `Start with just <b>${rupee(half)}</b> now, the rest when the work is done`;
     const BREAK = {
-      web: withGoogle
-        ? {hi:`${rupee(priceNow("web"))} वेबसाइट + ${rupee(GOOGLE_ADDON)} Google पर दुकान, एक बार`, en:`${rupee(priceNow("web"))} website + ${rupee(GOOGLE_ADDON)} Google listing, one-time`}
-        : {hi:`${rupee(priceNow("web"))} सिर्फ वेबसाइट, एक बार`, en:`${rupee(priceNow("web"))} website only, one-time`},
+      web: {hi:`${rupee(priceNow("web"))} में वेबसाइट + Google Maps, एक बार`, en:`Website + Google Maps for ${rupee(priceNow("web"))}, one-time`},
       app: {hi:"एक बार का खर्चा, कोई महीने का चार्ज नहीं", en:"One-time cost, no monthly charge"},
       all: {hi:`${rupee(priceNow("all"))} एक बार + ₹999 महीना (जब चाहें बंद)`, en:`${rupee(priceNow("all"))} one-time + ₹999 a month (stop anytime)`},
       big: {hi:"दाम आपकी ज़रूरत के हिसाब से तय होगा", en:"Price depends on what you need"}
@@ -2132,7 +2114,6 @@
   nameEl.addEventListener("input", () => { stopDemo(); render(); });
   areaEl.addEventListener("input", () => { stopDemo(); render(); });
   nameEl.addEventListener("focus", stopDemo);
-  $("#gAddCheck").addEventListener("change", e => { withGoogle = e.target.checked; stopDemo(); render(); });
 
   // Shop photo: stays on this phone only, nothing is uploaded
   const photoIn = $("#shopPhoto"), screenEl = $(".screen");
