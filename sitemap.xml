@@ -4,8 +4,16 @@
     <loc>https://grahko.in/</loc>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://grahko.in/"/>
     <xhtml:link rel="alternate" hreflang="hi-IN" href="https://grahko.in/?lang=hi"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://grahko.in/services</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://grahko.in/services"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://grahko.in/services?lang=hi"/>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
