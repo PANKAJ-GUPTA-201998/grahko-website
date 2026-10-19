@@ -12,7 +12,7 @@ ink `#0E1525`, sand `#FAF8F4`. Font: Inter (Hindi text uses Hind).
 | File | What it is |
 |---|---|
 | `index.html` | Home page: live shop preview, plans, calculator, FAQ, contact |
-| `services.html` | Services page: business promotion packages and 20 add-on services |
+| `services.html` | Services page: promotion packages, 20 add-on services, GST and paperwork |
 | `styles.css` | Design for both pages |
 | `config.js` | **Your details, prices and festival offer, used by both pages** |
 | `vercel.json` | Lets `/services` work without `.html` |
@@ -32,7 +32,7 @@ ink `#0E1525`, sand `#FAF8F4`. Font: Inter (Hindi text uses Hind).
    If you change what a plan includes, also update its card in the Pricing section of `index.html`.
    Which plan is suggested for each business type is `plan:` in `TYPES` (`web`, `app` = Website + WhatsApp, `all`, `big`).
 5. `config.js` → `FESTIVAL`: next festival name and last order date
-6. Promotion packages and add-on services → `services.html` (name, one line, price).
+6. Promotion packages, add-on services and the GST / paperwork section → `services.html` (name, one line, price).
    Each item opens WhatsApp with its name, so no code change is needed to add one.
 
 The site address is set to `https://grahko.in/`. If you use another domain, replace it in
