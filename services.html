@@ -88,6 +88,7 @@
   <symbol id="i-food" viewBox="0 0 24 24"><path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3zm0 0v7"/></symbol>
   <symbol id="i-rupee" viewBox="0 0 24 24"><path d="M6 3h12M6 8h12M6 13l8.5 8M6 13h3M9 13c6.7 0 6.7-10 0-10"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h3l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
 </svg>
 <!-- ============ NAV ============ -->
@@ -98,7 +99,15 @@
       <a href="/#studio" data-sec="studio"><span class="hi">अपनी दुकान देखिए</span><span class="en">See your shop</span></a>
       <a href="/#services" data-sec="services"><span class="hi">हम क्या करते हैं</span><span class="en">What we do</span></a>
       <a href="/#pricing" data-sec="pricing"><span class="hi">दाम</span><span class="en">Pricing</span></a>
-      <a href="services.html" data-page="services" aria-current="page"><span class="hi">सर्विस</span><span class="en">Services</span></a>
+      <div class="nav-dd" id="svcDd">
+        <button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="svcMenu"><span class="hi">सर्विस</span><span class="en">Services</span><svg class="i dd-caret" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="nav-dd-panel" id="svcMenu"><div class="dd-card">
+          <a href="#promotion"><span class="dd-ic"><svg class="i" aria-hidden="true"><use href="#i-calc"/></svg></span><span><b><span class="en">Business promotion</span><span class="hi">बिज़नेस प्रमोशन</span></b><small><span class="en">Monthly packages from ₹2,999</span><span class="hi">₹2,999/महीना से पैकेज</span></small></span></a>
+          <a href="#addons"><span class="dd-ic"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span><span><b><span class="en">Add-on services</span><span class="hi">ऐड-ऑन सर्विस</span></b><small><span class="en">Logo, photoshoot, ads and 17 more</span><span class="hi">लोगो, फोटोशूट, ऐड और 17 और</span></small></span></a>
+          <a href="#tax"><span class="dd-ic"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg></span><span><b><span class="en">GST & paperwork</span><span class="hi">GST और कागज़ी काम</span></b><small><span class="en">GST, Udyam, FSSAI, ITR, licences</span><span class="hi">GST, Udyam, FSSAI, ITR, लाइसेंस</span></small></span></a>
+          <a class="dd-all" href="services.html"><span class="en">See all services</span><span class="hi">सारी सर्विस देखें</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div></div>
+      </div>
       <a href="/#faq" data-sec="faq"><span class="hi">सवाल</span><span class="en">FAQ</span></a>
     </div>
     <div class="nav-right">
@@ -134,7 +143,10 @@
       <a href="/#calc" data-sec="calc"><svg class="i" aria-hidden="true"><use href="#i-calc"/></svg><span class="hi">कितना फायदा</span><span class="en">Your gain</span></a>
       <a href="/#why" data-sec="why"><svg class="i" aria-hidden="true"><use href="#i-scale"/></svg><span class="hi">हम ही क्यों</span><span class="en">Why Grahko</span></a>
       <a href="/#pricing" data-sec="pricing"><svg class="i" aria-hidden="true"><use href="#i-tag"/></svg><span class="hi">दाम</span><span class="en">Pricing</span></a>
-      <a href="services.html" data-page="services" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span class="hi">सर्विस: प्रमोशन, ऐड-ऑन, GST</span><span class="en">Services: promotion, add-ons, GST</span></a>
+      <a href="services.html" data-page="services" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span class="hi">सर्विस</span><span class="en">Services</span></a>
+      <a class="menu-sub" href="#promotion"><span class="en">Business promotion</span><span class="hi">बिज़नेस प्रमोशन</span></a>
+      <a class="menu-sub" href="#addons"><span class="en">Add-on services</span><span class="hi">ऐड-ऑन सर्विस</span></a>
+      <a class="menu-sub" href="#tax"><span class="en">GST & paperwork</span><span class="hi">GST और कागज़ी काम</span></a>
       <a href="/#how" data-sec="how"><svg class="i" aria-hidden="true"><use href="#i-steps"/></svg><span class="hi">काम कैसे होता है</span><span class="en">How it works</span></a>
       <a href="/#work" data-sec="work"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span class="hi">हमारे बारे में</span><span class="en">About us</span></a>
       <a href="/#faq" data-sec="faq"><svg class="i" aria-hidden="true"><use href="#i-help"/></svg><span class="hi">आपके सवाल</span><span class="en">FAQ</span></a>
@@ -405,6 +417,16 @@
   offerPop.addEventListener("click", e => { if (e.target.closest("a")) setOffer(false); });
   document.addEventListener("click", e => { if (!offerPop.hidden && !e.target.closest("#fest")) setOffer(false); });
 
+  // Services dropdown in the nav: hover on desktop, tap to open on touch screens
+  const dd = $("#svcDd"), ddBtn = $("#svcDd .nav-dd-btn");
+  if (dd) {
+    const setDd = open => { dd.classList.toggle("open", open); ddBtn.setAttribute("aria-expanded", open ? "true" : "false"); };
+    ddBtn.addEventListener("click", e => { e.stopPropagation(); setDd(!dd.classList.contains("open")); });
+    dd.addEventListener("click", e => { if (e.target.closest("a")) setDd(false); });
+    document.addEventListener("click", e => { if (!e.target.closest("#svcDd")) setDd(false); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && dd.classList.contains("open")) { setDd(false); ddBtn.focus(); } });
+  }
+
   // Menu
   const menu = $("#menu"), menuBtn = $("#menuBtn");
   function openMenu(){ menu.hidden = false; document.body.classList.add("menu-open"); requestAnimationFrame(() => menu.classList.add("open")); menuBtn.setAttribute("aria-expanded", "true"); $("#menuClose").focus(); }
@@ -435,6 +457,12 @@
   try { saved = localStorage.getItem("grahko-lang"); } catch (e) {}
   const ql = new URLSearchParams(location.search).get("lang");
   setLang(ql === "en" || ql === "hi" ? ql : (saved === "hi" ? "hi" : "en"));
+
+  // Opening a link like services#tax: land on the section once fonts have settled the layout
+  if (location.hash.length > 1) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(() => target.scrollIntoView({ behavior: "instant" })));
+  }
 </script>
 </body>
 </html>
